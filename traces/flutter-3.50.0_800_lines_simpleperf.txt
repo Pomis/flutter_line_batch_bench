@@ -1,0 +1,206 @@
+lines800: CPU time by thread over 6.0 s (ms of CPU a second; 1000 = one core flat out)
+     565 ms/s   88.9%  1.raster
+      69 ms/s   10.8%  com.example.line_batch_bench
+       2 ms/s    0.3%  pool-1-thread-1
+
+== 1.raster: 565 ms/s ==
+  by library:
+     53.2%  libflutter.so
+     24.3%  libGLESv2_adreno.so
+     19.7%  libc.so
+      0.7%  libbinder.so
+      0.4%  libgui.so
+      0.4%  libGLESv2.so
+      0.3%  libgsl.so
+      0.3%  [vdso]
+  self time:
+     23.0%  (no names)  [libGLESv2_adreno.so]
+      6.0%  syscall  [libc.so]
+      4.8%  std::__fl::__function::__func<impeller::RenderPassGLES::OnEncodeCommands(impeller::Context const&) cons…
+      2.6%  __memcpy  [libc.so]
+      2.2%  __ioctl  [libc.so]
+      1.5%  pthread_mutex_unlock  [libc.so]
+      1.3%  impeller::ReactorGLES::GetHandle(impeller::HandleGLES const&) const  [libflutter.so]
+      1.3%  @plt  [libflutter.so]
+      1.2%  std::__fl::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:nn210000](void const*, unsigned l…
+      1.2%  pthread_getspecific  [libc.so]
+      1.2%  impeller::RenderPass::Draw()  [libflutter.so]
+      1.1%  je_malloc  [libc.so]
+      1.1%  impeller::PipelineDescriptor::GetHash() const  [libflutter.so]
+      0.9%  impeller::RenderPass::BindResource(impeller::ShaderStage, impeller::DescriptorType, impeller::ShaderUni…
+      0.9%  impeller::SolidColorContents::Render(impeller::ContentContext const&, impeller::Entity const&, impeller…
+      0.8%  impeller::DeviceBufferGLES::BindAndUploadDataIfNecessary(impeller::DeviceBufferGLES::BindingType) const…
+      0.8%  impeller::Matrix::Multiply(impeller::Matrix const&) const  [libflutter.so]
+      0.8%  je_free  [libc.so]
+      0.7%  impeller::ReactorGLES::GetGLHandle(impeller::HandleGLES const&) const  [libflutter.so]
+      0.7%  std::__fl::shared_ptr<impeller::ContextGLES>::~shared_ptr[abi:nn210000]()  [libflutter.so]
+      0.6%  impeller::Command::Command(impeller::Command&&)  [libflutter.so]
+      0.6%  pthread_mutex_lock  [libc.so]
+      0.6%  std::__fl::__shared_weak_count::__release_shared[abi:nn210000]()  [libflutter.so]
+      0.6%  impeller::DeviceBufferGLES::Flush(std::__fl::optional<impeller::Range>) const  [libflutter.so]
+      0.6%  impeller::HostBuffer::Emplace(void const*, unsigned long, unsigned long)  [libflutter.so]
+      0.6%  std::__fl::__shared_mutex_base::lock()  [libflutter.so]
+      0.5%  impeller::RenderPass::BindBuffer(impeller::ShaderStage, impeller::ShaderUniformSlot const&, impeller::R…
+      0.5%  impeller::LineGeometry::GetPositionBuffer(impeller::ContentContext const&, impeller::Entity const&, imp…
+      0.5%  std::__fl::mutex::lock()  [libflutter.so]
+      0.5%  impeller::PipelineDescriptor::IsEqual(impeller::PipelineDescriptor const&) const  [libflutter.so]
+      0.5%  impeller::HostBuffer::EmplaceInternal(void const*, unsigned long)  [libflutter.so]
+      0.5%  impeller::BufferView::operator=(impeller::BufferView&&)  [libflutter.so]
+      0.5%  impeller::Canvas::AddRenderEntityToCurrentPass(impeller::Entity&, bool)  [libflutter.so]
+      0.5%  memcmp  [libc.so]
+      0.4%  std::__fl::__function::__value_func<void (sk_sp<flutter::DlImage>, std::__fl::basic_string<char, std::_…
+      0.4%  impeller::Tessellator::GenerateStartRoundCap(impeller::TPoint<float> const&, impeller::TPoint<float> co…
+      0.4%  @plt  [libGLESv2_adreno.so]
+      0.4%  impeller::Tessellator::GenerateEndRoundCap(impeller::TPoint<float> const&, impeller::TPoint<float> cons…
+      0.4%  impeller::VertexDescriptor::GetHash() const  [libflutter.so]
+      0.4%  impeller::Resource<impeller::BufferView>::~Resource()  [libflutter.so]
+      0.4%  NonPI::MutexLockWithTimeout(pthread_mutex_internal_t*, bool, timespec const*)  [libc.so]
+      0.4%  impeller::BufferBindingsGLES::BindTextures(impeller::ProcTableGLES const&, std::__fl::vector<impeller::…
+      0.4%  impeller::Tessellator::GenerateRoundCapLine(impeller::Tessellator::Trigs const&, impeller::Tessellator:…
+      0.4%  std::__fl::basic_string<char, std::__fl::char_traits<char>, std::__fl::allocator<char>>::operator=[abi:…
+  with callees:
+     96.2%  __pthread_start(void*)  [libc.so]
+     96.2%  ALooper_pollOnce  [libandroid.so]
+     96.2%  std::__fl::__function::__func<fml::Thread::Thread(std::__fl::function<void (fml::Thread::ThreadConfig c…
+     96.2%  fml::ThreadHandle::ThreadHandle(std::__fl::function<void ()>&&)::$_0::__invoke(void*)  [libflutter.so]
+     96.2%  fml::MessageLoopAndroid::Run()  [libflutter.so]
+     96.2%  __start_thread  [libc.so]
+     96.2%  android::Looper::pollOnce(int, int*, int*, void**)  [libutils.so]
+     96.2%  android::Looper::pollInner(int)  [libutils.so]
+     96.1%  fml::MessageLoopAndroid::MessageLoopAndroid()::$_0::__invoke(int, int, void*)  [libflutter.so]
+     96.0%  fml::MessageLoopImpl::RunExpiredTasksNow()  [libflutter.so]
+     95.6%  std::__fl::__function::__func<fml::internal::CopyableLambda<flutter::Shell::OnAnimatorDraw(std::__fl::s…
+     95.6%  flutter::Rasterizer::Draw(std::__fl::shared_ptr<flutter::Pipeline<flutter::FrameItem>> const&)  [libflu…
+     95.5%  std::__fl::__function::__func<flutter::Rasterizer::Draw(std::__fl::shared_ptr<flutter::Pipeline<flutter…
+     95.2%  flutter::Rasterizer::DrawToSurfaces(flutter::FrameTimingsRecorder&, std::__fl::vector<std::__fl::unique…
+     95.0%  flutter::Rasterizer::DrawToSurfacesUnsafe(flutter::FrameTimingsRecorder&, std::__fl::vector<std::__fl::…
+     92.4%  flutter::SurfaceFrame::Submit()  [libflutter.so]
+     86.6%  std::__fl::__function::__func<flutter::GPUSurfaceGLImpeller::AcquireFrame(impeller::TSize<int> const&):…
+     86.4%  impeller::RenderToTarget(impeller::ContentContext&, impeller::RenderTarget, sk_sp<flutter::DisplayList>…
+     56.4%  impeller::Canvas::EndReplay()  [libflutter.so]
+     56.2%  impeller::ReactorGLES::React()  [libflutter.so]
+     55.1%  std::__fl::__function::__func<impeller::RenderPassGLES::OnEncodeCommands(impeller::Context const&) cons…
+     29.7%  flutter::DisplayList::Dispatch(flutter::DlOpReceiver&) const  [libflutter.so]
+     29.6%  flutter::DisplayList::DispatchOneOp(flutter::DlOpReceiver&, unsigned char const*) const  [libflutter.so]
+     29.4%  impeller::DlDispatcherBase::drawDisplayList(sk_sp<flutter::DisplayList>, float)  [libflutter.so]
+     28.3%  impeller::Canvas::DrawLine(impeller::TPoint<float> const&, impeller::TPoint<float> const&, impeller::Pa…
+     28.1%  impeller::DlDispatcherBase::drawPoints(flutter::DlPointMode, unsigned int, impeller::TPoint<float> cons…
+     24.8%  impeller::Canvas::AddRenderEntityWithFiltersToCurrentPass(impeller::Entity&, impeller::Geometry const*,…
+     24.2%  impeller::Canvas::AddRenderEntityToCurrentPass(impeller::Entity&, bool)  [libflutter.so]
+     22.2%  impeller::SolidColorContents::Render(impeller::ContentContext const&, impeller::Entity const&, impeller…
+      7.7%  impeller::DeviceBufferGLES::BindAndUploadDataIfNecessary(impeller::DeviceBufferGLES::BindingType) const…
+      7.3%  impeller::PipelineLibrary::LogPipelineUsage(impeller::PipelineDescriptor const&)  [libflutter.so]
+      6.7%  std::__fl::function<impeller::GeometryResult (impeller::ContentContext const&, impeller::Entity const&,…
+      6.6%  std::__fl::unordered_map<impeller::PipelineDescriptor, int, impeller::ComparableHash<impeller::Pipeline…
+      6.6%  impeller::LineGeometry::GetPositionBuffer(impeller::ContentContext const&, impeller::Entity const&, imp…
+      6.2%  impeller::BindVertexBuffer(impeller::ProcTableGLES const&, impeller::BufferBindingsGLES*, impeller::Buf…
+      6.2%  pthread_cond_broadcast  [libc.so]
+      6.0%  syscall  [libc.so]
+      5.7%  std::__fl::__function::__func<flutter::GPUSurfaceGLImpeller::AcquireFrame(impeller::TSize<int> const&):…
+      5.7%  flutter::AndroidSurfaceGLImpeller::GLContextPresent(flutter::GLPresentInfo const&)  [libflutter.so]
+      5.7%  eglSwapBuffers  [libEGL.so]
+      5.6%  android::eglSwapBuffersWithDamageKHRImpl(void*, void*, int*, int)  [libEGL.so]
+      5.1%  impeller::Geometry::ComputePositionGeometry(impeller::ContentContext const&, impeller::Tessellator::Ver…
+      4.6%  impeller::PipelineDescriptor::GetHash() const  [libflutter.so]
+      3.8%  impeller::RenderPass::Draw()  [libflutter.so]
+
+== com.example.line_batch_bench: 69 ms/s ==
+  by library:
+     42.2%  libflutter.so
+     24.8%  libapp.so
+     21.7%  libc.so
+      2.7%  [vdso]
+      2.4%  libutils.so
+      1.9%  libbinder.so
+      1.2%  libandroidfw.so
+      0.7%  libgui.so
+  self time:
+     24.8%  (no names)  [libapp.so]
+      6.3%  __ioctl  [libc.so]
+      2.7%  __kernel_clock_gettime  [[vdso]]
+      2.2%  __epoll_pwait  [libc.so]
+      1.9%  je_arena_tcache_fill_small  [libc.so]
+      1.7%  timerfd_settime  [libc.so]
+      1.4%  @plt  [libflutter.so]
+      1.2%  read  [libc.so]
+      1.2%  __memcpy  [libc.so]
+      1.0%  flutter::AccumulationRect::accumulate(impeller::TPoint<float>)  [libflutter.so]
+      1.0%  pthread_getspecific  [libc.so]
+      1.0%  recvfrom  [libc.so]
+      1.0%  operator_new_impl(unsigned long)  [libflutter.so]
+      1.0%  dart::Thread::HandleInterrupts(unsigned long)  [libflutter.so]
+      1.0%  OUTLINED_FUNCTION_1210  [libflutter.so]
+      1.0%  je_extent_heap_remove_first  [libc.so]
+      1.0%  android::RefBase::incStrong(void const*) const  [libutils.so]
+      0.7%  SkStrike::digestFor(skglyph::ActionType, SkPackedGlyphID)  [libflutter.so]
+      0.7%  android::DisplayEventDispatcher::handleEvent(int, int, void*)  [libandroidfw.so]
+      0.7%  Dart_SetNativeInstanceField  [libflutter.so]
+      0.7%  dart::Instance::CheckedHandle(dart::Zone*, dart::ObjectPtr)  [libflutter.so]
+      0.7%  je_free  [libc.so]
+      0.7%  pthread_mutex_unlock  [libc.so]
+      0.7%  android::Parcel::writeString16(char16_t const*, unsigned long)  [libbinder.so]
+      0.5%  fml::MessageLoopTaskQueues::PeekNextTaskUnlocked(fml::TaskQueueId) const  [libflutter.so]
+      0.5%  DRT_InterruptOrStackOverflow  [libflutter.so]
+      0.5%  flutter::RuntimeController::Render(long, flutter::Scene*, double, double)  [libflutter.so]
+      0.5%  dart::TimelineEvent::Reset()  [libflutter.so]
+      0.5%  dart::TypedDataView::HandleTag() const  [libflutter.so]
+      0.5%  Dart_TypedDataAcquireData  [libflutter.so]
+      0.5%  OUTLINED_FUNCTION_132  [libflutter.so]
+      0.5%  dart::Scavenger::TryAllocateNewTLAB(dart::Thread*, long, bool)  [libflutter.so]
+      0.5%  std::__fl::__function::__value_func<void (int, char const*)>::~__value_func[abi:nn210000]()  [libflutte…
+      0.5%  syscall  [libc.so]
+      0.5%  dart::TimelineBeginEndScope::TimelineBeginEndScope(dart::Thread*, dart::TimelineStream*, char const*)  …
+      0.5%  Dart_IsNull  [libflutter.so]
+      0.5%  sk_malloc_throw(unsigned long, unsigned long)  [libflutter.so]
+      0.5%  dart::Thread::ExitIsolate(bool)  [libflutter.so]
+      0.5%  OUTLINED_FUNCTION_2193  [libflutter.so]
+      0.5%  je_calloc  [libc.so]
+      0.5%  Dart_EnterScope  [libflutter.so]
+      0.5%  OUTLINED_FUNCTION_2101  [libflutter.so]
+      0.5%  dart::Function::DoArgumentTypesMatch(dart::Array const&, dart::ArgumentsDescriptor const&) const  [libf…
+      0.5%  std::__fl::__function::__func<flutter::Animator::AwaitVSync()::$_0, std::__fl::allocator<flutter::Anima…
+  with callees:
+     73.7%  android::AndroidRuntime::start(char const*, android::Vector<android::String8> const&, bool)  [libandroi…
+     73.7%  art::(anonymous namespace)::InvokeWithArgArray(art::ScopedObjectAccessAlreadyRunnable const&, art::ArtM…
+     73.7%  art_quick_invoke_static_stub  [libart.so]
+     73.7%  main  [app_process64]
+     73.7%  __libc_init  [libc.so]
+     73.7%  art::JNI::CallStaticVoidMethodV(_JNIEnv*, _jclass*, _jmethodID*, std::__va_list)  [libart.so]
+     73.7%  com.android.internal.os.ZygoteInit.main  [boot-framework.oat]
+     73.7%  art::Method_invoke(_JNIEnv*, _jobject*, _jobject*, _jobjectArray*)  [libart.so]
+     73.7%  art::InvokeWithVarArgs(art::ScopedObjectAccessAlreadyRunnable const&, _jobject*, _jmethodID*, std::__va…
+     73.7%  _JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)  [libandroid_runtime.so]
+     73.7%  art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)  [libart.s…
+     73.5%  android.os.MessageQueue.next  [[JIT app cache]]
+     72.0%  android::android_os_MessageQueue_nativePollOnce(_JNIEnv*, _jobject*, long, int)  [libandroid_runtime.so]
+     71.8%  android::Looper::pollOnce(int, int*, int*, void**)  [libutils.so]
+     71.6%  android::Looper::pollInner(int)  [libutils.so]
+     58.6%  fml::MessageLoopAndroid::MessageLoopAndroid()::$_0::__invoke(int, int, void*)  [libflutter.so]
+     57.3%  fml::MessageLoopImpl::RunExpiredTasksNow()  [libflutter.so]
+     50.1%  std::__fl::__function::__func<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint)::$_0, …
+     49.2%  std::__fl::__function::__func<flutter::Animator::AwaitVSync()::$_0, std::__fl::allocator<flutter::Anima…
+     46.7%  flutter::Shell::OnAnimatorBeginFrame(fml::TimePoint, unsigned long)  [libflutter.so]
+     43.9%  Dart_InvokeClosure  [libflutter.so]
+     42.4%  dart::DartEntry::InvokeCallable(dart::Thread*, dart::Function const&, dart::Array const&, dart::Array c…
+     27.7%  tonic::DartInvokeVoid(_Dart_Handle*)  [libflutter.so]
+     16.1%  tonic::DartInvoke(_Dart_Handle*, std::initializer_list<_Dart_Handle*>)  [libflutter.so]
+     10.8%  flutter::Animator::RequestFrame(bool)  [libflutter.so]
+      9.4%  flutter::VsyncWaiterAndroid::AwaitVSync()  [libflutter.so]
+      8.9%  android::Choreographer::postFrameCallbackDelayed(void (*)(long, void*), void (*)(long, void*), void*, l…
+      8.9%  std::__fl::__function::__func<flutter::VsyncWaiterAndroid::AwaitVSync()::$_0, std::__fl::allocator<flut…
+      8.9%  android::DisplayEventDispatcher::scheduleVsync()  [libandroidfw.so]
+      8.7%  android::DisplayEventReceiver::requestNextVsync()  [libgui.so]
+      8.7%  android::DisplayEventDispatcher::handleEvent(int, int, void*)  [libandroidfw.so]
+      8.4%  android::BpDisplayEventConnection::requestNextVsync()  [libgui.so]
+      7.2%  android::IPCThreadState::waitForResponse(android::Parcel*, int*)  [libbinder.so]
+      7.2%  android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned…
+      7.2%  android::IPCThreadState::talkWithDriver(bool)  [libbinder.so]
+      7.2%  android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)  [lib…
+      6.5%  ioctl  [libc.so]
+      6.3%  __ioctl  [libc.so]
+      6.3%  android::Choreographer::dispatchVsync(long, unsigned long, unsigned int)  [libandroid.so]
+      5.5%  impeller::android::Choreographer::PostFrameCallback(std::__fl::function<void (std::__fl::chrono::time_p…
+      5.3%  std::__fl::function<fml::TaskQueueId (long, std::__fl::function<void ()>)>::operator()(long, std::__fl:…
+      5.3%  std::__fl::__function::__func<flutter::VsyncWaiterAndroid::AwaitVSync()::$_0::operator()() const::'lamb…
+      5.3%  dart::NativeEntry::BootstrapNativeCallWrapper(_Dart_NativeArguments*, void (*)(_Dart_NativeArguments*))…
+      5.1%  dart::BootstrapNatives::DN_Timeline_reportTaskEvent(dart::Thread*, dart::Zone*, dart::NativeArguments*)…

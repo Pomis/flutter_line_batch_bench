@@ -171,5 +171,6 @@ Each step prints one `LINEBENCH {json}` line to the log.
 - [`tool/bench.py`](tool/bench.py): builds, installs, runs and collects.
 - [`tool/charts.py`](tool/charts.py): draws the two charts from a paired result.
 - [`results/`](results): results as JSON.
+- [`traces/`](traces): a `simpleperf` call-graph summary and two timeline traces (open them at https://ui.perfetto.dev or in chrome://tracing) of stock Flutter 3.50.0 drawing 800 lines and the hatch scene.
 
 BSD 3-clause licence, the same as Flutter. See [LICENSE](LICENSE).
