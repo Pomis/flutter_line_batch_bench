@@ -6,6 +6,14 @@ It was written to measure one thing in Impeller: `Canvas.drawPoints` and `Canvas
 
 https://github.com/Pomis/flutter/tree/impeller-batch-drawpoints-lines
 
+## The cause
+
+`DlDispatcherBase::drawPoints` loops over `Canvas::DrawLine` for `PointMode.lines` and `PointMode.polygon`, so every segment becomes an entity and a draw call of its own:
+
+https://github.com/flutter/flutter/blob/2331a7f1961baf285157fc4833dd937643f46c3f/engine/src/flutter/impeller/display_list/dl_dispatcher.cc#L662-L678
+
+`PointMode.points` does not have this problem. It goes through `PointFieldGeometry`, which puts every point into one vertex buffer and one draw. The patch does the same for lines with a `LineFieldGeometry`: every segment is tessellated the way `LineGeometry` does it, and the strips are joined into one. It keeps the old per-segment loop where one draw could differ from separate draws: hairlines, mask blurs, image and color filters, advanced blend modes and SDF rendering.
+
 ## What it shows
 
 ![Raster thread work per frame for eight scenes, unpatched and patched engine](images/chart_scenes.png)
@@ -106,6 +114,32 @@ The patch keeps the old per-segment path for hairlines, mask blurs, image and co
 | 800 as one drawVertices | 800 | 0.71 | 0.72 | +1% | 2.2 | 2.1 | 59.5 | 59.5 |
 
 The raw numbers, with the lowest and highest round for every figure, are in [`results/`](results).
+
+## Where the time goes
+
+A `simpleperf` call graph of the raster thread, stock Flutter 3.50.0, 800 lines in one `drawRawPoints` call. The figures are shares of the raster thread's CPU time, callees included. The full summary is in [`traces/`](traces/flutter-3.50.0_800_lines_simpleperf.txt).
+
+```
+86.4%  impeller::RenderToTarget
+29.7%    flutter::DisplayList::Dispatch
+28.1%      impeller::DlDispatcherBase::drawPoints
+28.3%        impeller::Canvas::DrawLine                      (once per segment)
+24.2%          impeller::Canvas::AddRenderEntityToCurrentPass
+22.2%            impeller::SolidColorContents::Render
+ 6.6%              impeller::LineGeometry::GetPositionBuffer
+56.2%    impeller::ReactorGLES::React
+55.1%      impeller::RenderPassGLES::OnEncodeCommands        (one command per segment)
+ 7.7%        impeller::DeviceBufferGLES::BindAndUploadDataIfNecessary
+ 7.3%        impeller::PipelineLibrary::LogPipelineUsage     (debug and profile builds only)
+ 6.2%        impeller::BindVertexBuffer
+```
+
+## How the patch was checked
+
+- **On the phone.** Every scenario draws one fixed frame into an image and hashes it. All 37 hashes are equal between the unpatched and the patched engine.
+- **Existing golden tests.** 28 golden images of the engine's line, polygon and point tests (`DepthValuesForLineMode`, `DepthValuesForPolygonMode`, `CanDrawPoints`, `DrawLinesRenderCorrectly`, `CanRenderLinesWithCapsAnglesAndAlphas`, `CanRenderStrokes` and others) are pixel-identical with and without the patch, on the Metal and the OpenGL ES backend.
+- **A new golden test** with crossing translucent lines in all three cap styles, as separate segments, as a polygon and thinner than a pixel. It renders the same through the old loop and through the single draw.
+- **The cases the patch leaves alone** (hairlines, color filter, `drawLine`, an empty frame) cost the same on both engines, as the last table above shows.
 
 ## Run it
 
