@@ -1,0 +1,474 @@
+{
+ "phone": {
+  "model": "OnePlus ONEPLUS A6000",
+  "android": "10",
+  "chip": "sdm845",
+  "batteryC": 29.8,
+  "batteryCAfter": 30.3
+ },
+ "flutter": {
+  "frameworkVersion": "3.50.0",
+  "channel": "stable",
+  "frameworkRevision": "ab2912035e160d9cad6306df307576da6128ebdb",
+  "engineRevision": "371f77202a73e8dff57a8b3bff75bca55c090aee",
+  "dartSdkVersion": "3.14.0"
+ },
+ "app": "com.example.line_batch_bench",
+ "start": {
+  "type": "start",
+  "refreshRate": 60.000003814697266,
+  "devicePixelRatio": 2.625,
+  "widthPx": 1080.0,
+  "heightPx": 577.5,
+  "steps": 5,
+  "rounds": 5,
+  "dart": "3.14.0"
+ },
+ "scenarios": [
+  {
+   "label": "empty frame",
+   "spec": "lines:way=empty",
+   "plan": {
+    "rounds": 5,
+    "segments": 0,
+    "fps": 59.654095725933175,
+    "fpsRange": [
+     59.587430592486044,
+     59.740162518030495
+    ],
+    "rasterCpuMsPerFrame": 2.485464079166667,
+    "rasterCpuMsPerFrameRange": [
+     2.014970631799163,
+     2.571929058333333
+    ],
+    "uiCpuMsPerFrame": 1.9862878625,
+    "uiCpuMsPerFrameRange": [
+     1.8672393430962342,
+     2.006453325
+    ],
+    "rasterP50": 2.023,
+    "rasterP50Range": [
+     1.956,
+     16.558
+    ],
+    "uiP50": 1.245,
+    "uiP50Range": [
+     1.225,
+     1.281
+    ],
+    "hash": [
+     "a5496ca5"
+    ]
+   },
+   "counted": {
+    "rounds": 3,
+    "segments": 0,
+    "fps": 59.57200629170118,
+    "fpsRange": [
+     59.56007780190916,
+     59.573045714336274
+    ],
+    "rasterCpuMsPerFrame": 2.0399863661087867,
+    "rasterCpuMsPerFrameRange": [
+     2.030100841004184,
+     2.056102219665272
+    ],
+    "uiCpuMsPerFrame": 1.8976065251046026,
+    "uiCpuMsPerFrameRange": [
+     1.8782698577405859,
+     1.9422859623430961
+    ],
+    "rasterP50": 3.595,
+    "rasterP50Range": [
+     2.646,
+     16.275
+    ],
+    "uiP50": 1.263,
+    "uiP50Range": [
+     1.24,
+     1.264
+    ],
+    "rasterInstructions": 614072.8662905698,
+    "rasterInstructionsRange": [
+     613620.6062355994,
+     615623.9831713345
+    ],
+    "rasterCycles": 1613615.5628714894,
+    "rasterCyclesRange": [
+     1591317.7978272513,
+     1630659.166961424
+    ],
+    "uiInstructions": 388525.7041532945,
+    "uiInstructionsRange": [
+     368824.90954348893,
+     395238.9777956482
+    ],
+    "uiCycles": 1383100.5155665323,
+    "uiCyclesRange": [
+     1339310.4837889862,
+     1410332.1662999296
+    ],
+    "hash": [
+     "a5496ca5"
+    ]
+   }
+  },
+  {
+   "label": "800 drawLine calls",
+   "spec": "lines:way=drawline,n=800",
+   "plan": {
+    "rounds": 5,
+    "segments": 800,
+    "fps": 59.17504026637719,
+    "fpsRange": [
+     58.89580065486167,
+     59.429703612381076
+    ],
+    "rasterCpuMsPerFrame": 9.996445285714286,
+    "rasterCpuMsPerFrameRange": [
+     9.396324390756304,
+     10.196690957983193
+    ],
+    "uiCpuMsPerFrame": 3.8728413640167365,
+    "uiCpuMsPerFrameRange": [
+     2.9541338949579834,
+     4.0417159746835445
+    ],
+    "rasterP50": 11.178,
+    "rasterP50Range": [
+     9.984,
+     15.14
+    ],
+    "uiP50": 2.908,
+    "uiP50Range": [
+     2.604,
+     3.046
+    ],
+    "hash": [
+     "6a25c13e"
+    ]
+   },
+   "counted": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 59.63919038426604,
+    "fpsRange": [
+     59.51269211090021,
+     59.66121665196978
+    ],
+    "rasterCpuMsPerFrame": 8.868315556485356,
+    "rasterCpuMsPerFrameRange": [
+     8.742346867924528,
+     8.981488468619247
+    ],
+    "uiCpuMsPerFrame": 2.7082053054393307,
+    "uiCpuMsPerFrameRange": [
+     2.6893703451882844,
+     2.752357729559748
+    ],
+    "rasterP50": 9.569,
+    "rasterP50Range": [
+     9.51,
+     9.582
+    ],
+    "uiP50": 2.46,
+    "uiP50Range": [
+     2.449,
+     2.549
+    ],
+    "rasterInstructions": 12662435.317274442,
+    "rasterInstructionsRange": [
+     12648368.495871322,
+     12665257.683618437
+    ],
+    "rasterCycles": 12958315.48048455,
+    "rasterCyclesRange": [
+     12332737.116905646,
+     12967375.664430637
+    ],
+    "uiInstructions": 3841537.8921705494,
+    "uiInstructionsRange": [
+     3834621.1285724514,
+     3852835.0847675637
+    ],
+    "uiCycles": 3851121.724164096,
+    "uiCyclesRange": [
+     3837668.7246003076,
+     3863631.9335805187
+    ],
+    "hash": [
+     "6a25c13e"
+    ]
+   }
+  },
+  {
+   "label": "800 in one drawRawPoints",
+   "spec": "lines:n=800",
+   "plan": {
+    "rounds": 5,
+    "segments": 800,
+    "fps": 59.049894669438935,
+    "fpsRange": [
+     58.72594435407037,
+     59.62944770460168
+    ],
+    "rasterCpuMsPerFrame": 11.676169265822786,
+    "rasterCpuMsPerFrameRange": [
+     11.355556357142857,
+     11.709238095833333
+    ],
+    "uiCpuMsPerFrame": 2.4618123347280334,
+    "uiCpuMsPerFrameRange": [
+     2.3226893291139237,
+     2.608893491666667
+    ],
+    "rasterP50": 12.437,
+    "rasterP50Range": [
+     11.51,
+     14.117
+    ],
+    "uiP50": 1.855,
+    "uiP50Range": [
+     1.736,
+     1.91
+    ],
+    "hash": [
+     "6a25c13e"
+    ]
+   },
+   "counted": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 59.63207012731446,
+    "fpsRange": [
+     59.62727960516262,
+     59.64757765322221
+    ],
+    "rasterCpuMsPerFrame": 10.01754019665272,
+    "rasterCpuMsPerFrameRange": [
+     10.015158736401673,
+     10.024017790794979
+    ],
+    "uiCpuMsPerFrame": 1.225832878661088,
+    "uiCpuMsPerFrameRange": [
+     1.197362868200837,
+     1.2300383096234309
+    ],
+    "rasterP50": 10.667,
+    "rasterP50Range": [
+     10.579,
+     10.727
+    ],
+    "uiP50": 0.885,
+    "uiP50Range": [
+     0.878,
+     0.912
+    ],
+    "rasterInstructions": 12541785.987669233,
+    "rasterInstructionsRange": [
+     12531873.655977441,
+     12548321.842840642
+    ],
+    "rasterCycles": 12264527.03889177,
+    "rasterCyclesRange": [
+     12049519.25911918,
+     12274566.407812446
+    ],
+    "uiInstructions": 598331.4953871539,
+    "uiInstructionsRange": [
+     596984.6867639704,
+     598672.8829655456
+    ],
+    "uiCycles": 1492519.3735165878,
+    "uiCyclesRange": [
+     1489125.3100716914,
+     1522887.1303639233
+    ],
+    "hash": [
+     "6a25c13e"
+    ]
+   }
+  },
+  {
+   "label": "800 as one stroked path",
+   "spec": "lines:way=path,n=800",
+   "plan": {
+    "rounds": 5,
+    "segments": 800,
+    "fps": 59.574415270908446,
+    "fpsRange": [
+     59.432969681476585,
+     59.67324423289174
+    ],
+    "rasterCpuMsPerFrame": 3.6722928041666667,
+    "rasterCpuMsPerFrameRange": [
+     3.6450510209205023,
+     3.7923881625000004
+    ],
+    "uiCpuMsPerFrame": 3.374741320833333,
+    "uiCpuMsPerFrameRange": [
+     3.3634740583333333,
+     3.462662092050209
+    ],
+    "rasterP50": 3.387,
+    "rasterP50Range": [
+     3.295,
+     16.555
+    ],
+    "uiP50": 2.682,
+    "uiP50Range": [
+     2.667,
+     2.737
+    ],
+    "hash": [
+     "d30cd028"
+    ]
+   },
+   "counted": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 59.552917065087726,
+    "fpsRange": [
+     59.538007482109016,
+     59.569793927146144
+    ],
+    "rasterCpuMsPerFrame": 2.9347874184100418,
+    "rasterCpuMsPerFrameRange": [
+     2.898712205020921,
+     2.957608577405858
+    ],
+    "uiCpuMsPerFrame": 3.2729023765690375,
+    "uiCpuMsPerFrameRange": [
+     3.16684619665272,
+     3.30472019874477
+    ],
+    "rasterP50": 3.329,
+    "rasterP50Range": [
+     3.231,
+     16.258
+    ],
+    "uiP50": 2.683,
+    "uiP50Range": [
+     2.675,
+     2.745
+    ],
+    "rasterInstructions": 1727828.3399758798,
+    "rasterInstructionsRange": [
+     1718723.9615247345,
+     1731476.1995361492
+    ],
+    "rasterCycles": 2676397.188703993,
+    "rasterCyclesRange": [
+     2590516.4307104438,
+     2696570.0907382714
+    ],
+    "uiInstructions": 1037688.0798433289,
+    "uiInstructionsRange": [
+     1006248.2734037078,
+     1039198.2479931929
+    ],
+    "uiCycles": 2388165.4908498293,
+    "uiCyclesRange": [
+     2329036.113278233,
+     2443823.8941888395
+    ],
+    "hash": [
+     "d30cd028"
+    ]
+   }
+  },
+  {
+   "label": "800 as one drawVertices",
+   "spec": "lines:way=vertices,n=800",
+   "plan": {
+    "rounds": 5,
+    "segments": 800,
+    "fps": 59.64119854952605,
+    "fpsRange": [
+     59.59541881855173,
+     59.65949344118444
+    ],
+    "rasterCpuMsPerFrame": 2.7814264416666665,
+    "rasterCpuMsPerFrameRange": [
+     2.5753934458333334,
+     2.8509485684647307
+    ],
+    "uiCpuMsPerFrame": 2.9030032875,
+    "uiCpuMsPerFrameRange": [
+     2.7983768041666663,
+     2.943061726141079
+    ],
+    "rasterP50": 2.331,
+    "rasterP50Range": [
+     2.229,
+     16.549
+    ],
+    "uiP50": 2.259,
+    "uiP50Range": [
+     2.169,
+     2.271
+    ],
+    "hash": [
+     "63742a4f"
+    ]
+   },
+   "counted": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 59.523357376369795,
+    "fpsRange": [
+     59.520118422622225,
+     59.524246853278086
+    ],
+    "rasterCpuMsPerFrame": 2.180290792887029,
+    "rasterCpuMsPerFrameRange": [
+     2.1772131025104606,
+     2.205322751046025
+    ],
+    "uiCpuMsPerFrame": 2.786563893305439,
+    "uiCpuMsPerFrameRange": [
+     2.7760380983263597,
+     2.795943359832636
+    ],
+    "rasterP50": 2.238,
+    "rasterP50Range": [
+     2.234,
+     2.238
+    ],
+    "uiP50": 2.269,
+    "uiP50Range": [
+     2.255,
+     2.276
+    ],
+    "rasterInstructions": 657862.4857894739,
+    "rasterInstructionsRange": [
+     654211.2148372238,
+     658210.7303149186
+    ],
+    "rasterCycles": 1798583.0092519296,
+    "rasterCyclesRange": [
+     1790640.8839195606,
+     1805830.029899896
+    ],
+    "uiInstructions": 847229.0571398342,
+    "uiInstructionsRange": [
+     846516.1148785028,
+     849199.2047441636
+    ],
+    "uiCycles": 2050565.5929925735,
+    "uiCyclesRange": [
+     2026709.3714001894,
+     2056111.5909692405
+    ],
+    "hash": [
+     "63742a4f"
+    ]
+   }
+  }
+ ],
+ "name": "flutter-3.50.0",
+ "seconds": 4,
+ "rounds": 5,
+ "amExtra": "",
+ "when": "2026-11-19T15:17:05"
+}

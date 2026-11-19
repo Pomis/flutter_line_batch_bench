@@ -16,15 +16,38 @@ Measured on a OnePlus 6 (Snapdragon 845, Adreno 630, Android 10, 60 Hz). Impelle
 
 ## The scenes
 
-Eight small drawings of the kind apps make out of lines, all drawn with `drawRawPoints`, all moving every frame:
+Eight small drawings of the kind apps make out of lines, all drawn with `drawRawPoints`, all moving every frame. These are recordings from the phone:
 
-![The eight scenes on the phone](images/scenes.png)
+| | |
+|---|---|
+| ![Hatched shapes](images/scene_hatch.gif) | ![Line chart](images/scene_chart.gif) |
+| **Hatched shapes**: clipped runs of parallel lines, some cross-hatched | **Line chart**: a grid, tick marks and six series as polylines |
+| ![Graph paper](images/scene_grid.gif) | ![Waveform](images/scene_waveform.gif) |
+| **Graph paper**: thin level and upright lines | **Waveform**: upright bars and their reflection |
+| ![Starfield](images/scene_starfield.gif) | ![Wireframe sphere](images/scene_wireframe.gif) |
+| **Starfield**: short streaks in three layers | **Wireframe sphere**: a turning sphere as mesh edges |
+| ![Long polyline](images/scene_spiro.gif) | ![Rain](images/scene_rain.gif) |
+| **Long polyline**: one self-crossing curve of 4,000 points | **Rain**: slanted drops in two layers |
 
 Besides the scenes there is a `lines` scenario: one set of plain lines whose number, cap, width, layout and way of drawing are set one at a time.
 
 ## Results
 
 Unpatched against patched engine, 37 scenarios, three rounds, the two engines alternating. Instructions are millions per frame on the raster thread. CPU time is the raster thread's own time per frame. All 37 scenarios produced the same pixel hash on both engines.
+
+### The same 800 lines, five ways, on stock Flutter
+
+Million raster thread instructions per frame, with the frames per second the phone delivered. One `drawRawPoints(PointMode.lines)` call costs the same as 800 `drawLine` calls on every Impeller version measured. 3.50.0 made each draw cheaper and kept the per-segment loop. The last two columns are the locally built engine from the paired run below.
+
+| Way of drawing 800 lines | Flutter 3.47.7 | Flutter 3.50.0 | 3.50.0, Impeller off | master, unpatched | master, patched |
+|---|---|---|---|---|---|
+| empty frame | 0.61 (60 fps) | 0.61 (60 fps) | 0.31 (60 fps) | 0.66 | 0.66 |
+| 800 drawLine calls | 17.07 (59 fps) | 12.66 (59 fps) | 65.90 (45 fps) | 15.01 | 15.01 |
+| 800 in one drawRawPoints | 16.96 (59 fps) | 12.54 (59 fps) | 64.70 (47 fps) | 14.89 | 1.71 |
+| 800 as one stroked path | 1.72 (59 fps) | 1.73 (60 fps) | 125.60 (36 fps) | not run | not run |
+| 800 as one drawVertices | 0.66 (59 fps) | 0.66 (60 fps) | 0.46 (60 fps) | 0.71 | 0.72 |
+
+"Impeller off" is the same 3.50.0 build started with `--ez enable-impeller false`, which falls back to the old Skia renderer. It is slower still on this test, so the old renderer is not a way around it.
 
 ### Scenes
 
@@ -112,7 +135,13 @@ python3 tool/bench.py build --suffix patched --flutter ~/src/flutter/bin/flutter
 python3 tool/bench.py pair base=base.apk patched=patched.apk
 ```
 
-The app can also be started by hand. The plan is the start route:
+There is also a 60-line version with no options, for a quick look or for pasting into a bug report:
+
+```sh
+flutter run --profile -t lib/minimal.dart
+```
+
+The full app can also be started by hand. The plan is the start route:
 
 ```sh
 flutter run --profile --route "/?s=hatch|chart|lines:n=800&seconds=4&rounds=1"
@@ -138,6 +167,7 @@ Each step prints one `LINEBENCH {json}` line to the log.
 ## Files
 
 - [`lib/main.dart`](lib/main.dart): the whole app. It depends only on Flutter's widgets library.
+- [`lib/minimal.dart`](lib/minimal.dart): 800 lines and nothing else, in about 60 lines of code.
 - [`tool/bench.py`](tool/bench.py): builds, installs, runs and collects.
 - [`tool/charts.py`](tool/charts.py): draws the two charts from a paired result.
 - [`results/`](results): results as JSON.
