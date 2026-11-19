@@ -864,6 +864,10 @@ class _LineBenchState extends State<LineBench>
   Future<void> _run() async {
     final steps = widget.scenarios;
     final view = WidgetsBinding.instance.platformDispatcher.views.first;
+    // On some phones the app runs before its view has a size.
+    while (view.physicalSize.isEmpty) {
+      await _frame();
+    }
     print(
       'LINEBENCH ${jsonEncode({'type': 'start', 'refreshRate': view.display.refreshRate, 'devicePixelRatio': view.devicePixelRatio, 'widthPx': view.physicalSize.width, 'heightPx': _height * view.devicePixelRatio, 'steps': steps.length, 'rounds': widget.rounds, 'dart': Platform.version.split(' ').first})}',
     );

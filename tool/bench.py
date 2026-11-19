@@ -265,6 +265,9 @@ def play(serial: str, app: str, route: str, timeout: float, extra: str = "", on_
             if raw not in seen:
                 seen.add(raw)
                 lines.append(json.loads(raw))
+        if any(line["type"] == "start" and not line.get("widthPx") for line in lines):
+            # A build from before the app waited for its view: it will not finish.
+            raise RunError("The app started before its view had a size.")
         if on_start and not told and any(line["type"] == "start" for line in lines):
             told = True
             on_start()
