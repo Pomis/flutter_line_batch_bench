@@ -1,11 +1,13 @@
 {
  "name": "master-2331a7f_unpatched_vs_patched",
  "phone": {
-  "model": "OnePlus ONEPLUS A6000",
+  "model": "OnePlus 6",
   "android": "10",
-  "chip": "sdm845",
+  "chip": "Snapdragon 845, Adreno 630",
   "batteryC": 30.3,
-  "batteryCAfter": 32.3
+  "batteryCAfter": 32.3,
+  "refreshHz": 60,
+  "backend": "Impeller OpenGL ES"
  },
  "flutter": {
   "frameworkRevision": "2331a7f1961baf285157fc4833dd937643f46c3f",

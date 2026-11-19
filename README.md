@@ -22,6 +22,16 @@ https://github.com/flutter/flutter/blob/2331a7f1961baf285157fc4833dd937643f46c3f
 
 Measured on a OnePlus 6 (Snapdragon 845, Adreno 630, Android 10, 60 Hz). Impeller uses its OpenGL ES backend on this phone. Flutter master at `2331a7f`, engine built locally with and without the patch, profile mode.
 
+The same run on three phones, two backends:
+
+| Phone | Backend | Screen | Scenes, raster instructions | 800 lines, instructions (M) | 1,600 lines, fps | 3,000-point polyline, fps |
+|---|---|---|---|---|---|---|
+| OnePlus 6 | OpenGL ES | 60 Hz | -72% to -92% | 14.89 to 1.71 | 59.5 to 59.5 | 46.0 to 59.5 |
+| Pixel 5 | OpenGL ES | 90 Hz | -61% to -88% | 16.00 to 2.42 | 71.2 to 89.9 | 52.7 to 89.9 |
+| Pixel 8 | Vulkan | 120 Hz | -68% to -90% | 8.35 to 1.44 | 52.2 to 120.0 | 103.7 to 119.9 |
+
+The change is in raster thread instructions per frame, unpatched to patched. All 37 scenarios produced the same pixel hash on both engines on every phone.
+
 ## The scenes
 
 Eight small drawings of the kind apps make out of lines, all drawn with `drawRawPoints`, all moving every frame. These are recordings from the phone:
@@ -58,6 +68,8 @@ Million raster thread instructions per frame, with the frames per second the pho
 "Impeller off" is the same 3.50.0 build started with `--ez enable-impeller false`, which falls back to the old Skia renderer. It is slower still on this test, so the old renderer is not a way around it.
 
 ### Scenes
+
+OnePlus 6. This table and the next two are from that phone.
 
 | Scenario | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
 |---|---|---|---|---|---|---|---|---|
@@ -98,6 +110,36 @@ Million raster thread instructions per frame, with the frames per second the pho
 | 800 in 200 calls | 800 | 14.93 | 5.30 | -65% | 9.6 | 5.6 | 59.6 | 59.5 |
 | polyline, 800 points | 799 | 14.89 | 1.75 | -88% | 9.8 | 2.8 | 59.6 | 59.6 |
 | polyline, 3000 points | 2,999 | 52.57 | 4.59 | -91% | 18.7 | 5.0 | 46.0 | 59.5 |
+
+### The scenes on the other two phones
+
+Pixel 5 (Snapdragon 765G, Adreno 620, Android 14, 90 Hz, Impeller on OpenGL ES):
+
+| Scene | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
+|---|---|---|---|---|---|---|---|---|
+| Hatched shapes | 931 | 18.58 | 2.98 | -84% | 7.1 | 3.1 | 90.0 | 89.9 |
+| Line chart | 1,903 | 36.68 | 4.46 | -88% | 10.9 | 3.9 | 88.3 | 89.9 |
+| Graph paper | 105 | 2.98 | 1.16 | -61% | 3.3 | 2.2 | 89.9 | 89.9 |
+| Waveform | 522 | 10.72 | 1.31 | -88% | 5.9 | 2.2 | 90.0 | 89.9 |
+| Starfield | 1,500 | 29.49 | 3.55 | -88% | 9.7 | 3.2 | 90.0 | 89.9 |
+| Wireframe sphere | 1,880 | 36.11 | 4.39 | -88% | 10.8 | 4.2 | 88.2 | 89.9 |
+| Long polyline | 3,999 | 76.06 | 9.38 | -88% | 22.1 | 5.1 | 43.9 | 89.9 |
+| Rain | 900 | 17.83 | 2.63 | -85% | 6.9 | 2.9 | 89.9 | 89.9 |
+
+Pixel 8 (Tensor G3, Android 16, 120 Hz, Impeller on Vulkan). The phone warmed from 24 to 39 °C during the run and reported light thermal throttling at the end; the engines alternated, so both saw it alike.
+
+| Scene | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
+|---|---|---|---|---|---|---|---|---|
+| Hatched shapes | 963 | 10.22 | 1.84 | -82% | 5.7 | 1.8 | 120.0 | 119.9 |
+| Line chart | 1,903 | 19.66 | 3.16 | -84% | 6.3 | 2.2 | 119.8 | 119.9 |
+| Graph paper | 108 | 1.42 | 0.45 | -68% | 1.7 | 1.7 | 119.9 | 119.9 |
+| Waveform | 548 | 5.53 | 0.58 | -90% | 4.5 | 1.0 | 119.9 | 119.9 |
+| Starfield | 1,500 | 15.51 | 2.44 | -84% | 5.9 | 2.9 | 119.9 | 119.9 |
+| Wireframe sphere | 1,880 | 19.17 | 2.78 | -85% | 6.2 | 1.5 | 119.7 | 119.9 |
+| Long polyline | 3,999 | 40.39 | 5.43 | -87% | 7.4 | 2.6 | 119.6 | 120.0 |
+| Rain | 900 | 9.49 | 1.66 | -82% | 5.4 | 1.6 | 120.0 | 119.8 |
+
+The remaining rows for these phones are in [`results/`](results).
 
 ### Cases that should not change, and controls
 
@@ -193,7 +235,7 @@ Each step prints one `LINEBENCH {json}` line to the log.
 
 ## Limits
 
-- One phone and one backend so far: OpenGL ES on an Adreno 630. Vulkan and Metal are not measured.
+- Three Android phones: OpenGL ES on two Adreno GPUs and Vulkan on one Mali GPU. Metal (iOS, macOS) is not measured.
 - Profile builds. In profile and debug mode Impeller also counts pipeline use at every draw, which a release build does not pay.
 - The counters and the CPU time need Android. On other platforms the app still reports frames per second and Flutter's frame timings.
 - Only the Android platform folder is checked in. `flutter create --platforms ios,macos .` adds the others.

@@ -1,0 +1,4023 @@
+{
+ "name": "master-2331a7f_unpatched_vs_patched",
+ "phone": {
+  "model": "Google Pixel 8",
+  "android": "16",
+  "chip": "Tensor G3, Mali-G715",
+  "refreshHz": 120,
+  "backend": "Impeller Vulkan",
+  "batteryC": 24.1,
+  "batteryCAfter": 38.7,
+  "thermalStatusAfter": 1
+ },
+ "flutter": {
+  "frameworkRevision": "2331a7f1961baf285157fc4833dd937643f46c3f",
+  "channel": "master",
+  "note": "engine built locally, android_profile_arm64; patched = branch impeller-batch-drawpoints-lines"
+ },
+ "apps": {
+  "unpatched": "unpatched engine",
+  "patched": "patched engine"
+ },
+ "seconds": 6,
+ "rounds": 3,
+ "when": "2026-11-19T17:27:52",
+ "scenarios": [
+  {
+   "label": "hatch",
+   "spec": "hatch",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 963,
+    "fps": 120.02676497113623,
+    "fpsRange": [
+     119.94036870533176,
+     120.11546390106079
+    ],
+    "rasterCpuMsPerFrame": 5.672327995844876,
+    "rasterCpuMsPerFrameRange": [
+     5.397857526315789,
+     5.849278976454293
+    ],
+    "uiCpuMsPerFrame": 3.273353444598338,
+    "uiCpuMsPerFrameRange": [
+     3.1151305221606647,
+     3.287348851800554
+    ],
+    "rasterP50": 5.689,
+    "rasterP50Range": [
+     5.461,
+     5.758
+    ],
+    "uiP50": 1.368,
+    "uiP50Range": [
+     1.227,
+     1.382
+    ],
+    "rasterInstructions": 10218341.488393545,
+    "rasterInstructionsRange": [
+     10175535.364008596,
+     10226804.345808914
+    ],
+    "rasterCycles": 5793597.662559859,
+    "rasterCyclesRange": [
+     5763983.953096401,
+     6221346.222806725
+    ],
+    "uiInstructions": 1232129.1102651777,
+    "uiInstructionsRange": [
+     1222699.6897370133,
+     1250817.145589643
+    ],
+    "uiCycles": 3945390.7051711986,
+    "uiCyclesRange": [
+     3831624.795262629,
+     3945475.898632648
+    ],
+    "hash": [
+     "fdf7a50b"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 963,
+    "fps": 119.87837492077983,
+    "fpsRange": [
+     119.85137102000489,
+     119.95614363458796
+    ],
+    "rasterCpuMsPerFrame": 1.791572673130194,
+    "rasterCpuMsPerFrameRange": [
+     1.4610272968099862,
+     2.563685313019391
+    ],
+    "uiCpuMsPerFrame": 2.203544595567867,
+    "uiCpuMsPerFrameRange": [
+     1.8564437503467406,
+     3.5158770664819943
+    ],
+    "rasterP50": 1.221,
+    "rasterP50Range": [
+     0.6,
+     2.649
+    ],
+    "uiP50": 0.368,
+    "uiP50Range": [
+     0.212,
+     1.327
+    ],
+    "rasterInstructions": 1838482.7410470962,
+    "rasterInstructionsRange": [
+     1828875.8339090615,
+     1844746.9402173203
+    ],
+    "rasterCycles": 1293303.96114548,
+    "rasterCyclesRange": [
+     1261385.39155887,
+     1357886.0995747573
+    ],
+    "uiInstructions": 1239132.4876153122,
+    "uiInstructionsRange": [
+     1234516.4253910473,
+     1255088.0760601293
+    ],
+    "uiCycles": 3202698.398164403,
+    "uiCyclesRange": [
+     3201540.956991503,
+     3529262.9989231294
+    ],
+    "hash": [
+     "fdf7a50b"
+    ]
+   }
+  },
+  {
+   "label": "chart",
+   "spec": "chart",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 1903,
+    "fps": 119.83076107158949,
+    "fpsRange": [
+     110.93542177996632,
+     120.1092295292367
+    ],
+    "rasterCpuMsPerFrame": 6.267953077669904,
+    "rasterCpuMsPerFrameRange": [
+     6.226294221606649,
+     8.376784547226386
+    ],
+    "uiCpuMsPerFrame": 3.6986684155124654,
+    "uiCpuMsPerFrameRange": [
+     3.5568637877947293,
+     3.8819342518740627
+    ],
+    "rasterP50": 6.001,
+    "rasterP50Range": [
+     5.977,
+     8.158
+    ],
+    "uiP50": 1.796,
+    "uiP50Range": [
+     1.681,
+     1.926
+    ],
+    "rasterInstructions": 19659331.8113344,
+    "rasterInstructionsRange": [
+     19561703.761817835,
+     19668411.95927625
+    ],
+    "rasterCycles": 10113965.665185565,
+    "rasterCyclesRange": [
+     9258066.647833467,
+     10424984.084319932
+    ],
+    "uiInstructions": 1654590.2738556964,
+    "uiInstructionsRange": [
+     1640938.1258417312,
+     1695150.9233872744
+    ],
+    "uiCycles": 4185761.678137878,
+    "uiCyclesRange": [
+     4124758.08661468,
+     4550493.618622109
+    ],
+    "hash": [
+     "5e14d9b0"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 1903,
+    "fps": 119.91317754474615,
+    "fpsRange": [
+     119.80055616702026,
+     119.9921930390587
+    ],
+    "rasterCpuMsPerFrame": 2.2336757423822715,
+    "rasterCpuMsPerFrameRange": [
+     1.855679563106796,
+     3.302677876901798
+    ],
+    "uiCpuMsPerFrame": 2.2517190207756235,
+    "uiCpuMsPerFrameRange": [
+     1.941701439667129,
+     3.799793930843707
+    ],
+    "rasterP50": 1.571,
+    "rasterP50Range": [
+     0.749,
+     3.607
+    ],
+    "uiP50": 0.409,
+    "uiP50Range": [
+     0.231,
+     1.662
+    ],
+    "rasterInstructions": 3164759.496184632,
+    "rasterInstructionsRange": [
+     3162069.6957328464,
+     3173292.16402988
+    ],
+    "rasterCycles": 1693998.7785561937,
+    "rasterCyclesRange": [
+     1625510.805141015,
+     1746925.5033934645
+    ],
+    "uiInstructions": 1630417.9481519782,
+    "uiInstructionsRange": [
+     1625758.492172782,
+     1638009.4526688575
+    ],
+    "uiCycles": 3180041.864487412,
+    "uiCyclesRange": [
+     2976247.340661139,
+     4074214.94734504
+    ],
+    "hash": [
+     "5e14d9b0"
+    ]
+   }
+  },
+  {
+   "label": "grid",
+   "spec": "grid",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 108,
+    "fps": 119.86570386188679,
+    "fpsRange": [
+     119.8495605820439,
+     119.96346597382502
+    ],
+    "rasterCpuMsPerFrame": 1.6813324764542934,
+    "rasterCpuMsPerFrameRange": [
+     1.3828402926490986,
+     2.583174210526316
+    ],
+    "uiCpuMsPerFrame": 1.9813414349030471,
+    "uiCpuMsPerFrameRange": [
+     1.7121126282940362,
+     3.5468472617728533
+    ],
+    "rasterP50": 1.102,
+    "rasterP50Range": [
+     0.567,
+     2.519
+    ],
+    "uiP50": 0.253,
+    "uiP50Range": [
+     0.158,
+     1.025
+    ],
+    "rasterInstructions": 1424637.3922759383,
+    "rasterInstructionsRange": [
+     1411800.8172016826,
+     1426091.8053614395
+    ],
+    "rasterCycles": 1213967.5186017605,
+    "rasterCyclesRange": [
+     1145218.487058918,
+     1231337.849315631
+    ],
+    "uiInstructions": 994213.8542425975,
+    "uiInstructionsRange": [
+     958067.747395124,
+     1011002.0053366049
+    ],
+    "uiCycles": 2922341.5261336523,
+    "uiCyclesRange": [
+     2831139.6371088023,
+     3875259.9255814855
+    ],
+    "hash": [
+     "5d4f4d3c"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 108,
+    "fps": 119.85552926591475,
+    "fpsRange": [
+     119.78927043191001,
+     119.94548959273521
+    ],
+    "rasterCpuMsPerFrame": 1.6762972202216067,
+    "rasterCpuMsPerFrameRange": [
+     1.631882373961219,
+     1.686880002770083
+    ],
+    "uiCpuMsPerFrame": 3.447424698060942,
+    "uiCpuMsPerFrameRange": [
+     3.3628250318559556,
+     3.476067745152355
+    ],
+    "rasterP50": 1.515,
+    "rasterP50Range": [
+     1.496,
+     1.522
+    ],
+    "uiP50": 1.037,
+    "uiP50Range": [
+     1.014,
+     1.085
+    ],
+    "rasterInstructions": 450021.594955182,
+    "rasterInstructionsRange": [
+     448720.55759597936,
+     458166.92573282646
+    ],
+    "rasterCycles": 790721.8984789925,
+    "rasterCyclesRange": [
+     766031.941455772,
+     800003.054102435
+    ],
+    "uiInstructions": 1022896.3430242881,
+    "uiInstructionsRange": [
+     1016520.4965989131,
+     1038298.0084067258
+    ],
+    "uiCycles": 3647645.0370081007,
+    "uiCyclesRange": [
+     3601424.025753142,
+     3778320.84914831
+    ],
+    "hash": [
+     "5d4f4d3c"
+    ]
+   }
+  },
+  {
+   "label": "waveform",
+   "spec": "waveform",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 548,
+    "fps": 119.90393734969453,
+    "fpsRange": [
+     119.80668312210906,
+     120.0428696031835
+    ],
+    "rasterCpuMsPerFrame": 4.505471229916898,
+    "rasterCpuMsPerFrameRange": [
+     3.196726289473684,
+     4.601243915512465
+    ],
+    "uiCpuMsPerFrame": 3.3405102631578947,
+    "uiCpuMsPerFrameRange": [
+     1.8974423282548478,
+     3.34383772299169
+    ],
+    "rasterP50": 4.668,
+    "rasterP50Range": [
+     2.475,
+     4.747
+    ],
+    "uiP50": 1.161,
+    "uiP50Range": [
+     0.319,
+     1.208
+    ],
+    "rasterInstructions": 5532259.8313650135,
+    "rasterInstructionsRange": [
+     5519318.552663127,
+     5535897.850280599
+    ],
+    "rasterCycles": 3065326.011307782,
+    "rasterCyclesRange": [
+     2931671.2620382425,
+     3127064.0818401817
+    ],
+    "uiInstructions": 1242886.858391967,
+    "uiInstructionsRange": [
+     1237067.6184688285,
+     1266294.772231861
+    ],
+    "uiCycles": 3611420.513746499,
+    "uiCyclesRange": [
+     2783307.006137602,
+     3738237.969439631
+    ],
+    "hash": [
+     "612cce38"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 548,
+    "fps": 119.90156778772972,
+    "fpsRange": [
+     119.86717852113162,
+     119.92679309268246
+    ],
+    "rasterCpuMsPerFrame": 0.957843095700416,
+    "rasterCpuMsPerFrameRange": [
+     0.9235275811373093,
+     1.695336135734072
+    ],
+    "uiCpuMsPerFrame": 1.778290049930652,
+    "uiCpuMsPerFrameRange": [
+     1.7448659639389736,
+     3.641305232686981
+    ],
+    "rasterP50": 0.743,
+    "rasterP50Range": [
+     0.38,
+     1.577
+    ],
+    "uiP50": 0.433,
+    "uiP50Range": [
+     0.188,
+     1.447
+    ],
+    "rasterInstructions": 580715.7390871173,
+    "rasterInstructionsRange": [
+     569631.3523579213,
+     595163.9676158621
+    ],
+    "rasterCycles": 852004.2234703664,
+    "rasterCyclesRange": [
+     824335.7729111394,
+     864634.6819576357
+    ],
+    "uiInstructions": 1244845.955465164,
+    "uiInstructionsRange": [
+     1231080.4920222291,
+     1286909.1813512982
+    ],
+    "uiCycles": 3010129.785768671,
+    "uiCyclesRange": [
+     2031767.2898383096,
+     4026761.1491423585
+    ],
+    "hash": [
+     "612cce38"
+    ]
+   }
+  },
+  {
+   "label": "starfield",
+   "spec": "starfield",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 1500,
+    "fps": 119.86969732237327,
+    "fpsRange": [
+     119.67042199885222,
+     120.03161386661064
+    ],
+    "rasterCpuMsPerFrame": 5.935095066481995,
+    "rasterCpuMsPerFrameRange": [
+     4.446477245152354,
+     7.148847591098749
+    ],
+    "uiCpuMsPerFrame": 3.4536381599443673,
+    "uiCpuMsPerFrameRange": [
+     1.787712778393352,
+     3.4911794736842108
+    ],
+    "rasterP50": 5.806,
+    "rasterP50Range": [
+     3.315,
+     7.024
+    ],
+    "uiP50": 1.622,
+    "uiP50Range": [
+     0.243,
+     1.765
+    ],
+    "rasterInstructions": 15507962.627817344,
+    "rasterInstructionsRange": [
+     15469313.099643135,
+     15525979.437260251
+    ],
+    "rasterCycles": 8227296.154135748,
+    "rasterCyclesRange": [
+     7731265.371191132,
+     8309646.649493678
+    ],
+    "uiInstructions": 1739749.965472332,
+    "uiInstructionsRange": [
+     1733035.6373914373,
+     1773642.3625383032
+    ],
+    "uiCycles": 4198649.221410821,
+    "uiCyclesRange": [
+     3472980.073186133,
+     4264583.43700376
+    ],
+    "hash": [
+     "cf73f25d"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 1500,
+    "fps": 119.89402165565009,
+    "fpsRange": [
+     119.76357807125568,
+     119.91668281887914
+    ],
+    "rasterCpuMsPerFrame": 2.889047150969529,
+    "rasterCpuMsPerFrameRange": [
+     1.8471776440443213,
+     2.8921066828254847
+    ],
+    "uiCpuMsPerFrame": 3.963950572022161,
+    "uiCpuMsPerFrameRange": [
+     2.2645390595567867,
+     4.008855552631579
+    ],
+    "rasterP50": 3.016,
+    "rasterP50Range": [
+     1.263,
+     3.027
+    ],
+    "uiP50": 1.762,
+    "uiP50Range": [
+     0.397,
+     1.839
+    ],
+    "rasterInstructions": 2444459.1403636485,
+    "rasterInstructionsRange": [
+     2441302.535193945,
+     2448243.4276841464
+    ],
+    "rasterCycles": 1436060.7352332904,
+    "rasterCyclesRange": [
+     1360283.0747532803,
+     1450364.6339222798
+    ],
+    "uiInstructions": 1747273.0896447203,
+    "uiInstructionsRange": [
+     1744216.981746999,
+     1762740.3803363342
+    ],
+    "uiCycles": 4177372.7095072465,
+    "uiCyclesRange": [
+     3448559.0285112807,
+     4271195.804016051
+    ],
+    "hash": [
+     "cf73f25d"
+    ]
+   }
+  },
+  {
+   "label": "wireframe",
+   "spec": "wireframe",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 1880,
+    "fps": 119.68150756146103,
+    "fpsRange": [
+     108.82334343915045,
+     120.02199627499598
+    ],
+    "rasterCpuMsPerFrame": 6.179643430747922,
+    "rasterCpuMsPerFrameRange": [
+     6.05120215,
+     8.12310051529052
+    ],
+    "uiCpuMsPerFrame": 4.004738381944445,
+    "uiCpuMsPerFrameRange": [
+     3.78883609833795,
+     4.786888218654434
+    ],
+    "rasterP50": 5.97,
+    "rasterP50Range": [
+     5.967,
+     7.801
+    ],
+    "uiP50": 2.161,
+    "uiP50Range": [
+     1.992,
+     2.369
+    ],
+    "rasterInstructions": 19168428.11838408,
+    "rasterInstructionsRange": [
+     18997099.53560723,
+     19248656.86014619
+    ],
+    "rasterCycles": 10199710.971456788,
+    "rasterCyclesRange": [
+     9358988.305998491,
+     10327834.00679523
+    ],
+    "uiInstructions": 4173617.9459058237,
+    "uiInstructionsRange": [
+     4169905.7652358566,
+     4176649.6258503143
+    ],
+    "uiCycles": 4593811.060571933,
+    "uiCyclesRange": [
+     4574690.987401163,
+     5622852.852828025
+    ],
+    "hash": [
+     "ad3bfffc"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 1880,
+    "fps": 119.92320257823242,
+    "fpsRange": [
+     119.89520394240706,
+     120.01336958924468
+    ],
+    "rasterCpuMsPerFrame": 1.489724829403606,
+    "rasterCpuMsPerFrameRange": [
+     1.4540467669902915,
+     2.555168700416089
+    ],
+    "uiCpuMsPerFrame": 2.3088847142857145,
+    "uiCpuMsPerFrameRange": [
+     2.2893420665742026,
+     4.6984939472954235
+    ],
+    "rasterP50": 0.753,
+    "rasterP50Range": [
+     0.697,
+     2.436
+    ],
+    "uiP50": 0.458,
+    "uiP50Range": [
+     0.453,
+     2.288
+    ],
+    "rasterInstructions": 2782578.9516079873,
+    "rasterInstructionsRange": [
+     2779325.8310395214,
+     2785080.758822381
+    ],
+    "rasterCycles": 1677074.6623297317,
+    "rasterCyclesRange": [
+     1592447.6024693998,
+     1699813.0679165977
+    ],
+    "uiInstructions": 4164673.0512736896,
+    "uiInstructionsRange": [
+     4160308.3140621884,
+     4191180.0007448667
+    ],
+    "uiCycles": 3411984.005788325,
+    "uiCyclesRange": [
+     3361690.417047491,
+     4890372.760670767
+    ],
+    "hash": [
+     "ad3bfffc"
+    ]
+   }
+  },
+  {
+   "label": "spiro",
+   "spec": "spiro",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 3999,
+    "fps": 119.64821430856377,
+    "fpsRange": [
+     65.73022126186754,
+     119.78799684397671
+    ],
+    "rasterCpuMsPerFrame": 7.364690588072122,
+    "rasterCpuMsPerFrameRange": [
+     7.135771829166667,
+     14.325592545454546
+    ],
+    "uiCpuMsPerFrame": 4.351490711111111,
+    "uiCpuMsPerFrameRange": [
+     4.1199247198335645,
+     6.015072169191919
+    ],
+    "rasterP50": 7.259,
+    "rasterP50Range": [
+     6.954,
+     14.952
+    ],
+    "uiP50": 2.863,
+    "uiP50Range": [
+     2.724,
+     3.287
+    ],
+    "rasterInstructions": 40385109.25950114,
+    "rasterInstructionsRange": [
+     40359228.418698944,
+     42301361.618904874
+    ],
+    "rasterCycles": 19066173.164775897,
+    "rasterCyclesRange": [
+     18885135.49530379,
+     19212149.64455572
+    ],
+    "uiInstructions": 3272299.3934652307,
+    "uiInstructionsRange": [
+     3269347.718806222,
+     3600776.8236532593
+    ],
+    "uiCycles": 4546566.153947354,
+    "uiCyclesRange": [
+     4361928.998542931,
+     5766203.248021209
+    ],
+    "hash": [
+     "23805b81"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 3999,
+    "fps": 119.9972714313384,
+    "fpsRange": [
+     119.99193627597215,
+     120.0295784800598
+    ],
+    "rasterCpuMsPerFrame": 2.562889391966759,
+    "rasterCpuMsPerFrameRange": [
+     2.3448915595567867,
+     3.935823053941909
+    ],
+    "uiCpuMsPerFrame": 2.631189394736842,
+    "uiCpuMsPerFrameRange": [
+     2.2511422576177287,
+     4.545391450899031
+    ],
+    "rasterP50": 1.772,
+    "rasterP50Range": [
+     1.37,
+     3.836
+    ],
+    "uiP50": 0.627,
+    "uiP50Range": [
+     0.366,
+     2.742
+    ],
+    "rasterInstructions": 5428751.241189421,
+    "rasterInstructionsRange": [
+     5418773.05959442,
+     5437125.982732282
+    ],
+    "rasterCycles": 2390698.941366571,
+    "rasterCyclesRange": [
+     2234915.5256279795,
+     2451428.537249108
+    ],
+    "uiInstructions": 3261660.0556843104,
+    "uiInstructionsRange": [
+     3240690.6237713364,
+     3275221.1185104945
+    ],
+    "uiCycles": 3815311.156061283,
+    "uiCyclesRange": [
+     3779506.925340701,
+     4914780.721157305
+    ],
+    "hash": [
+     "23805b81"
+    ]
+   }
+  },
+  {
+   "label": "rain",
+   "spec": "rain",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 900,
+    "fps": 120.01311833143866,
+    "fpsRange": [
+     119.99373569457484,
+     120.06069550395975
+    ],
+    "rasterCpuMsPerFrame": 5.444176871191136,
+    "rasterCpuMsPerFrameRange": [
+     3.4729582441054094,
+     5.552268033240997
+    ],
+    "uiCpuMsPerFrame": 3.1330338684210526,
+    "uiCpuMsPerFrameRange": [
+     1.5573035409153955,
+     3.1493935844875347
+    ],
+    "rasterP50": 5.441,
+    "rasterP50Range": [
+     2.306,
+     5.463
+    ],
+    "uiP50": 1.198,
+    "uiP50Range": [
+     0.19,
+     1.229
+    ],
+    "rasterInstructions": 9492209.991101168,
+    "rasterInstructionsRange": [
+     9479451.103326637,
+     9607946.05171422
+    ],
+    "rasterCycles": 5318213.310432056,
+    "rasterCyclesRange": [
+     5236198.078052081,
+     5467345.079626299
+    ],
+    "uiInstructions": 1273816.2571508158,
+    "uiInstructionsRange": [
+     1240944.5045356748,
+     1280353.4639723229
+    ],
+    "uiCycles": 3839413.2202936676,
+    "uiCyclesRange": [
+     2988466.5203734525,
+     3988999.4878180474
+    ],
+    "hash": [
+     "e26c5bba"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 900,
+    "fps": 119.80609027031645,
+    "fpsRange": [
+     119.69684535814142,
+     119.88382077219148
+    ],
+    "rasterCpuMsPerFrame": 1.634818441828255,
+    "rasterCpuMsPerFrameRange": [
+     1.3052146185852982,
+     2.4229311664355064
+    ],
+    "uiCpuMsPerFrame": 2.096926181440443,
+    "uiCpuMsPerFrameRange": [
+     1.7572329403606104,
+     3.6166214882108183
+    ],
+    "rasterP50": 1.055,
+    "rasterP50Range": [
+     0.548,
+     2.433
+    ],
+    "uiP50": 0.311,
+    "uiP50Range": [
+     0.188,
+     1.362
+    ],
+    "rasterInstructions": 1663654.963445905,
+    "rasterInstructionsRange": [
+     1655678.2692642612,
+     1668527.1062604645
+    ],
+    "rasterCycles": 1177550.5635214355,
+    "rasterCyclesRange": [
+     1110934.4002612557,
+     1209184.964425001
+    ],
+    "uiInstructions": 1263509.6853853608,
+    "uiInstructionsRange": [
+     1251638.4203458403,
+     1294658.2402449874
+    ],
+    "uiCycles": 3099620.132649628,
+    "uiCyclesRange": [
+     3079223.2717159786,
+     4013701.8412514883
+    ],
+    "hash": [
+     "e26c5bba"
+    ]
+   }
+  },
+  {
+   "label": "2 lines",
+   "spec": "lines:n=2",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 2,
+    "fps": 119.90975213392026,
+    "fpsRange": [
+     119.8295499338199,
+     119.92382092928486
+    ],
+    "rasterCpuMsPerFrame": 1.1222666759002768,
+    "rasterCpuMsPerFrameRange": [
+     0.9589868474341193,
+     1.6769984570637118
+    ],
+    "uiCpuMsPerFrame": 1.9855166772853183,
+    "uiCpuMsPerFrameRange": [
+     1.722350042995839,
+     3.4793606329639886
+    ],
+    "rasterP50": 0.784,
+    "rasterP50Range": [
+     0.385,
+     1.514
+    ],
+    "uiP50": 0.254,
+    "uiP50Range": [
+     0.163,
+     1.135
+    ],
+    "rasterInstructions": 442149.59244967677,
+    "rasterInstructionsRange": [
+     438190.5968260749,
+     443928.5133418421
+    ],
+    "rasterCycles": 790220.0588443906,
+    "rasterCyclesRange": [
+     731493.1697023684,
+     836064.038179057
+    ],
+    "uiInstructions": 1003797.864386228,
+    "uiInstructionsRange": [
+     974017.1032037449,
+     1021200.1302481993
+    ],
+    "uiCycles": 3017771.691758772,
+    "uiCyclesRange": [
+     2814735.1751755434,
+     3749828.708299484
+    ],
+    "hash": [
+     "33676fb9"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 2,
+    "fps": 119.9493384569391,
+    "fpsRange": [
+     119.83370666567525,
+     120.08887241871297
+    ],
+    "rasterCpuMsPerFrame": 1.6834220207756232,
+    "rasterCpuMsPerFrameRange": [
+     1.6462094951456312,
+     1.7113682326869808
+    ],
+    "uiCpuMsPerFrame": 3.462812457063712,
+    "uiCpuMsPerFrameRange": [
+     3.4219828904299585,
+     3.562170549861496
+    ],
+    "rasterP50": 1.5,
+    "rasterP50Range": [
+     1.485,
+     1.532
+    ],
+    "uiP50": 1.142,
+    "uiP50Range": [
+     1.109,
+     1.156
+    ],
+    "rasterInstructions": 434689.2946979566,
+    "rasterInstructionsRange": [
+     434250.6091503103,
+     436732.2063826457
+    ],
+    "rasterCycles": 776320.9875669132,
+    "rasterCyclesRange": [
+     776181.8847656085,
+     819047.8701960726
+    ],
+    "uiInstructions": 1026467.9648694682,
+    "uiInstructionsRange": [
+     1023782.8791237575,
+     1033952.8752225916
+    ],
+    "uiCycles": 3662926.7588466257,
+    "uiCyclesRange": [
+     3602410.245329538,
+     3828348.9576093294
+    ],
+    "hash": [
+     "33676fb9"
+    ]
+   }
+  },
+  {
+   "label": "10 lines",
+   "spec": "lines:n=10",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 10,
+    "fps": 119.90594856400172,
+    "fpsRange": [
+     119.85349984669708,
+     119.99941496130103
+    ],
+    "rasterCpuMsPerFrame": 1.7455430041551245,
+    "rasterCpuMsPerFrameRange": [
+     1.5468166288088643,
+     1.7473691135734073
+    ],
+    "uiCpuMsPerFrame": 3.5011727853185595,
+    "uiCpuMsPerFrameRange": [
+     3.220537997229917,
+     3.5341073116343487
+    ],
+    "rasterP50": 1.597,
+    "rasterP50Range": [
+     1.506,
+     1.616
+    ],
+    "uiP50": 1.073,
+    "uiP50Range": [
+     0.961,
+     1.082
+    ],
+    "rasterInstructions": 526578.9579829781,
+    "rasterInstructionsRange": [
+     521360.80272011267,
+     531313.6845694386
+    ],
+    "rasterCycles": 833885.419164043,
+    "rasterCyclesRange": [
+     810608.9286952807,
+     843054.4540168752
+    ],
+    "uiInstructions": 1016613.9396541385,
+    "uiInstructionsRange": [
+     1006521.5825943113,
+     1017663.3263888339
+    ],
+    "uiCycles": 3722778.8787852726,
+    "uiCyclesRange": [
+     3311212.4319973355,
+     3754693.755342914
+    ],
+    "hash": [
+     "a7411683"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 10,
+    "fps": 119.95604384634646,
+    "fpsRange": [
+     119.87118993905496,
+     119.96480146323827
+    ],
+    "rasterCpuMsPerFrame": 1.527794369806094,
+    "rasterCpuMsPerFrameRange": [
+     0.9272606740638002,
+     1.6526614778393351
+    ],
+    "uiCpuMsPerFrame": 3.4429902368421055,
+    "uiCpuMsPerFrameRange": [
+     1.7270952454923718,
+     3.468219842105263
+    ],
+    "rasterP50": 1.452,
+    "rasterP50Range": [
+     0.376,
+     1.515
+    ],
+    "uiP50": 1.069,
+    "uiP50Range": [
+     0.158,
+     1.085
+    ],
+    "rasterInstructions": 447935.3270286722,
+    "rasterInstructionsRange": [
+     435537.27489851444,
+     448936.9623310655
+    ],
+    "rasterCycles": 779632.3985842475,
+    "rasterCyclesRange": [
+     773511.9466650119,
+     802747.8345967252
+    ],
+    "uiInstructions": 1025862.6368274201,
+    "uiInstructionsRange": [
+     971322.161366249,
+     1035717.9036820893
+    ],
+    "uiCycles": 3616241.090328347,
+    "uiCyclesRange": [
+     2958358.5931332763,
+     3757945.1947649005
+    ],
+    "hash": [
+     "a7411683"
+    ]
+   }
+  },
+  {
+   "label": "50 lines",
+   "spec": "lines:n=50",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 50,
+    "fps": 119.85237379179331,
+    "fpsRange": [
+     119.74981755176896,
+     119.98282351158149
+    ],
+    "rasterCpuMsPerFrame": 1.2058543758668516,
+    "rasterCpuMsPerFrameRange": [
+     1.1698068335644938,
+     1.3887930567867035
+    ],
+    "uiCpuMsPerFrame": 1.7304689084604716,
+    "uiCpuMsPerFrameRange": [
+     1.6877467420249654,
+     1.9548679072022161
+    ],
+    "rasterP50": 0.484,
+    "rasterP50Range": [
+     0.471,
+     0.869
+    ],
+    "uiP50": 0.168,
+    "uiP50Range": [
+     0.161,
+     0.267
+    ],
+    "rasterInstructions": 915654.67829848,
+    "rasterInstructionsRange": [
+     914025.1449974573,
+     938906.7556380819
+    ],
+    "rasterCycles": 1023814.2873985262,
+    "rasterCyclesRange": [
+     976386.6278170762,
+     1047794.828591804
+    ],
+    "uiInstructions": 971582.3830864151,
+    "uiInstructionsRange": [
+     971029.3170233029,
+     986687.7115467135
+    ],
+    "uiCycles": 2870171.4122168426,
+    "uiCyclesRange": [
+     2810853.833929749,
+     2889882.835190822
+    ],
+    "hash": [
+     "d00dc3f7"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 50,
+    "fps": 119.93491243753321,
+    "fpsRange": [
+     119.91903306061441,
+     119.95316177926757
+    ],
+    "rasterCpuMsPerFrame": 1.6797060581717451,
+    "rasterCpuMsPerFrameRange": [
+     1.6782816495844874,
+     1.7013426712898752
+    ],
+    "uiCpuMsPerFrame": 3.504274185595568,
+    "uiCpuMsPerFrameRange": [
+     3.4874560207756233,
+     3.567675062413315
+    ],
+    "rasterP50": 1.544,
+    "rasterP50Range": [
+     1.535,
+     1.545
+    ],
+    "uiP50": 1.122,
+    "uiP50Range": [
+     1.091,
+     1.141
+    ],
+    "rasterInstructions": 496820.52750535676,
+    "rasterInstructionsRange": [
+     496227.5890720493,
+     497008.9033405165
+    ],
+    "rasterCycles": 795560.1922361194,
+    "rasterCyclesRange": [
+     789847.1861598291,
+     801705.8898608378
+    ],
+    "uiInstructions": 1037898.1341832124,
+    "uiInstructionsRange": [
+     1036827.9709224745,
+     1044989.255769591
+    ],
+    "uiCycles": 3764893.883682243,
+    "uiCyclesRange": [
+     3707225.6319621196,
+     3818579.025841407
+    ],
+    "hash": [
+     "d00dc3f7"
+    ]
+   }
+  },
+  {
+   "label": "100 lines",
+   "spec": "lines:n=100",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 100,
+    "fps": 119.9836808899399,
+    "fpsRange": [
+     119.96801962084449,
+     120.37429756027568
+    ],
+    "rasterCpuMsPerFrame": 2.600746031767956,
+    "rasterCpuMsPerFrameRange": [
+     1.389323635228849,
+     2.6247170027700832
+    ],
+    "uiCpuMsPerFrame": 3.553202549723757,
+    "uiCpuMsPerFrameRange": [
+     1.6978614077669905,
+     3.591273009695291
+    ],
+    "rasterP50": 2.552,
+    "rasterP50Range": [
+     0.648,
+     2.566
+    ],
+    "uiP50": 1.079,
+    "uiP50Range": [
+     0.164,
+     1.085
+    ],
+    "rasterInstructions": 1427503.8114132287,
+    "rasterInstructionsRange": [
+     1421371.0313523426,
+     1428123.1489870818
+    ],
+    "rasterCycles": 1236214.3326479362,
+    "rasterCyclesRange": [
+     1208682.4832023194,
+     1251063.1474668807
+    ],
+    "uiInstructions": 1011678.1844340136,
+    "uiInstructionsRange": [
+     977332.1046864986,
+     1027520.2823949003
+    ],
+    "uiCycles": 3739173.755068776,
+    "uiCyclesRange": [
+     2855905.229989616,
+     3795104.0911964667
+    ],
+    "hash": [
+     "d295f138"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 100,
+    "fps": 119.95446721416481,
+    "fpsRange": [
+     119.8829729648952,
+     119.99966712991088
+    ],
+    "rasterCpuMsPerFrame": 1.1174832843273232,
+    "rasterCpuMsPerFrameRange": [
+     0.9784645839112345,
+     1.7723708379501384
+    ],
+    "uiCpuMsPerFrame": 1.9081877226074895,
+    "uiCpuMsPerFrameRange": [
+     1.741762173370319,
+     3.543439714681441
+    ],
+    "rasterP50": 0.74,
+    "rasterP50Range": [
+     0.39,
+     1.611
+    ],
+    "uiP50": 0.259,
+    "uiP50Range": [
+     0.169,
+     1.119
+    ],
+    "rasterInstructions": 562591.8753982123,
+    "rasterInstructionsRange": [
+     553382.6976877115,
+     563238.9923184612
+    ],
+    "rasterCycles": 833371.9531846169,
+    "rasterCyclesRange": [
+     777557.8291034212,
+     869970.1495189903
+    ],
+    "uiInstructions": 999277.9330255663,
+    "uiInstructionsRange": [
+     991840.7513450208,
+     1058703.74503984
+    ],
+    "uiCycles": 2899389.2679956784,
+    "uiCyclesRange": [
+     2693607.1662882566,
+     3821867.9897357468
+    ],
+    "hash": [
+     "d295f138"
+    ]
+   }
+  },
+  {
+   "label": "400 lines",
+   "spec": "lines:n=400",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 400,
+    "fps": 120.03644319715902,
+    "fpsRange": [
+     119.69175383661943,
+     120.33088333671556
+    ],
+    "rasterCpuMsPerFrame": 4.1660454529085875,
+    "rasterCpuMsPerFrameRange": [
+     4.0799802666666665,
+     4.2908888577348065
+    ],
+    "uiCpuMsPerFrame": 3.390031113573407,
+    "uiCpuMsPerFrameRange": [
+     3.3523472180555554,
+     3.5647147900552487
+    ],
+    "rasterP50": 4.123,
+    "rasterP50Range": [
+     4.109,
+     4.228
+    ],
+    "uiP50": 1.11,
+    "uiP50Range": [
+     1.077,
+     1.141
+    ],
+    "rasterInstructions": 4451020.868767005,
+    "rasterInstructionsRange": [
+     4440912.091375735,
+     4465361.729250306
+    ],
+    "rasterCycles": 2588171.516166911,
+    "rasterCyclesRange": [
+     2569802.7717947676,
+     2633635.826029359
+    ],
+    "uiInstructions": 1065644.4042572854,
+    "uiInstructionsRange": [
+     1055185.310567353,
+     1085853.0369588286
+    ],
+    "uiCycles": 3620528.9362513022,
+    "uiCyclesRange": [
+     3072954.089606753,
+     3814431.1413578535
+    ],
+    "hash": [
+     "84743bb9"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 400,
+    "fps": 120.00755282991771,
+    "fpsRange": [
+     119.86691120401996,
+     120.15321194097224
+    ],
+    "rasterCpuMsPerFrame": 1.729619030470914,
+    "rasterCpuMsPerFrameRange": [
+     1.278870794198895,
+     1.9619403407202214
+    ],
+    "uiCpuMsPerFrame": 3.33079841966759,
+    "uiCpuMsPerFrameRange": [
+     1.9622298770718232,
+     3.4713920013850417
+    ],
+    "rasterP50": 1.744,
+    "rasterP50Range": [
+     0.862,
+     1.874
+    ],
+    "uiP50": 1.047,
+    "uiP50Range": [
+     0.267,
+     1.115
+    ],
+    "rasterInstructions": 939660.4445743848,
+    "rasterInstructionsRange": [
+     937511.8805060572,
+     941101.0617750644
+    ],
+    "rasterCycles": 956211.1584238842,
+    "rasterCyclesRange": [
+     922550.2838179128,
+     967733.0109178508
+    ],
+    "uiInstructions": 1090950.1390299639,
+    "uiInstructionsRange": [
+     1069297.6162320934,
+     1121283.103670354
+    ],
+    "uiCycles": 3624744.155847279,
+    "uiCyclesRange": [
+     2774065.727823241,
+     3660455.2409507525
+    ],
+    "hash": [
+     "84743bb9"
+    ]
+   }
+  },
+  {
+   "label": "800 lines",
+   "spec": "lines:n=800",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 111.99940710106151,
+    "fpsRange": [
+     107.70891665274596,
+     114.03683755568854
+    ],
+    "rasterCpuMsPerFrame": 5.4608625356083085,
+    "rasterCpuMsPerFrameRange": [
+     4.921109070987654,
+     5.472521858600583
+    ],
+    "uiCpuMsPerFrame": 3.2246650563798216,
+    "uiCpuMsPerFrameRange": [
+     2.309118597222222,
+     3.233337807580175
+    ],
+    "rasterP50": 5.921,
+    "rasterP50Range": [
+     5.548,
+     6.032
+    ],
+    "uiP50": 1.195,
+    "uiP50Range": [
+     0.755,
+     1.198
+    ],
+    "rasterInstructions": 8354251.874051202,
+    "rasterInstructionsRange": [
+     8218306.272090963,
+     8437154.077625433
+    ],
+    "rasterCycles": 4522275.869100875,
+    "rasterCyclesRange": [
+     4274780.213992984,
+     4673290.768950621
+    ],
+    "uiInstructions": 1104248.1153689146,
+    "uiInstructionsRange": [
+     1103795.469645481,
+     1123781.7327390555
+    ],
+    "uiCycles": 3477990.6873738887,
+    "uiCyclesRange": [
+     2213435.578326785,
+     3493352.3888221574
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.98920429541408,
+    "fpsRange": [
+     119.80877787901241,
+     120.19055182736122
+    ],
+    "rasterCpuMsPerFrame": 2.2610057700831026,
+    "rasterCpuMsPerFrameRange": [
+     1.1722176116504854,
+     2.281071403314917
+    ],
+    "uiCpuMsPerFrame": 3.582345786703601,
+    "uiCpuMsPerFrameRange": [
+     1.7492294521497922,
+     3.593305272099448
+    ],
+    "rasterP50": 2.241,
+    "rasterP50Range": [
+     0.687,
+     2.247
+    ],
+    "uiP50": 1.252,
+    "uiP50Range": [
+     0.366,
+     1.252
+    ],
+    "rasterInstructions": 1441802.4880655983,
+    "rasterInstructionsRange": [
+     1438071.7675757266,
+     1446630.6500283857
+    ],
+    "rasterCycles": 1103941.4504000074,
+    "rasterCyclesRange": [
+     1094734.4103876194,
+     1175684.7670489918
+    ],
+    "uiInstructions": 1190809.978421023,
+    "uiInstructionsRange": [
+     1154754.7313338101,
+     1217609.5578367366
+    ],
+    "uiCycles": 3839776.7980221165,
+    "uiCyclesRange": [
+     2654255.274916489,
+     3866582.018127069
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   }
+  },
+  {
+   "label": "1600 lines",
+   "spec": "lines:n=1600",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 1600,
+    "fps": 52.17367107862688,
+    "fpsRange": [
+     50.739743875754506,
+     58.87453124264068
+    ],
+    "rasterCpuMsPerFrame": 9.517739422222222,
+    "rasterCpuMsPerFrameRange": [
+     9.510333470422534,
+     9.722010101639343
+    ],
+    "uiCpuMsPerFrame": 4.621321757377049,
+    "uiCpuMsPerFrameRange": [
+     4.420149276190476,
+     4.7924060056338025
+    ],
+    "rasterP50": 15.483,
+    "rasterP50Range": [
+     15.132,
+     15.615
+    ],
+    "uiP50": 1.653,
+    "uiP50Range": [
+     1.547,
+     1.708
+    ],
+    "rasterInstructions": 16375315.803964974,
+    "rasterInstructionsRange": [
+     16019619.158913646,
+     16835215.40988812
+    ],
+    "rasterCycles": 9290968.289830243,
+    "rasterCyclesRange": [
+     9017809.199658817,
+     10000616.13543138
+    ],
+    "uiInstructions": 1437279.6935482968,
+    "uiInstructionsRange": [
+     1414338.7864452566,
+     1538498.1928087706
+    ],
+    "uiCycles": 4666969.993090389,
+    "uiCyclesRange": [
+     4440659.80871061,
+     4825500.872919585
+    ],
+    "hash": [
+     "0c1ba80d"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 1600,
+    "fps": 119.9568886240164,
+    "fpsRange": [
+     119.90926145208286,
+     120.48244900214239
+    ],
+    "rasterCpuMsPerFrame": 1.8733195883977902,
+    "rasterCpuMsPerFrameRange": [
+     1.7477438710124826,
+     2.6781065623268696
+    ],
+    "uiCpuMsPerFrame": 2.1962443494475137,
+    "uiCpuMsPerFrameRange": [
+     1.9183625922330099,
+     3.83916878531856
+    ],
+    "rasterP50": 1.192,
+    "rasterP50Range": [
+     1.005,
+     2.909
+    ],
+    "uiP50": 0.314,
+    "uiP50Range": [
+     0.219,
+     1.532
+    ],
+    "rasterInstructions": 2439395.3954912317,
+    "rasterInstructionsRange": [
+     2438350.8536517457,
+     2442059.426237386
+    ],
+    "rasterCycles": 1389281.4040697056,
+    "rasterCyclesRange": [
+     1357389.6080026906,
+     1482281.4747645825
+    ],
+    "uiInstructions": 1349887.6190616796,
+    "uiInstructionsRange": [
+     1331542.7688110957,
+     1384343.833988573
+    ],
+    "uiCycles": 3254738.913085492,
+    "uiCyclesRange": [
+     3155353.8685683217,
+     4030788.927511741
+    ],
+    "hash": [
+     "0c1ba80d"
+    ]
+   }
+  },
+  {
+   "label": "800, butt caps",
+   "spec": "lines:n=800,cap=butt",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 113.49706045936897,
+    "fpsRange": [
+     108.19834814975846,
+     113.7733634599877
+    ],
+    "rasterCpuMsPerFrame": 5.3707855944363105,
+    "rasterCpuMsPerFrameRange": [
+     5.075472055555556,
+     5.494057351226994
+    ],
+    "uiCpuMsPerFrame": 3.2568725204678364,
+    "uiCpuMsPerFrameRange": [
+     3.255352308931186,
+     3.284870539877301
+    ],
+    "rasterP50": 5.652,
+    "rasterP50Range": [
+     5.366,
+     6.637
+    ],
+    "uiP50": 1.189,
+    "uiP50Range": [
+     1.127,
+     1.195
+    ],
+    "rasterInstructions": 7670075.418977029,
+    "rasterInstructionsRange": [
+     7656638.761260023,
+     7703660.461738088
+    ],
+    "rasterCycles": 4056280.378316133,
+    "rasterCyclesRange": [
+     4003247.3376151198,
+     4093797.115483453
+    ],
+    "uiInstructions": 1109894.041821411,
+    "uiInstructionsRange": [
+     1098689.1892056905,
+     1110523.865035975
+    ],
+    "uiCycles": 3462786.9908007327,
+    "uiCyclesRange": [
+     3257827.84400964,
+     3523969.769596258
+    ],
+    "hash": [
+     "dd59736f"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.92510826479995,
+    "fpsRange": [
+     119.74383443640293,
+     120.3803620389507
+    ],
+    "rasterCpuMsPerFrame": 1.1566870193905816,
+    "rasterCpuMsPerFrameRange": [
+     1.133486629834254,
+     1.748345530470914
+    ],
+    "uiCpuMsPerFrame": 2.0646459085872575,
+    "uiCpuMsPerFrameRange": [
+     1.9995212845303867,
+     3.5731660083102494
+    ],
+    "rasterP50": 0.81,
+    "rasterP50Range": [
+     0.774,
+     1.634
+    ],
+    "uiP50": 0.33,
+    "uiP50Range": [
+     0.281,
+     1.162
+    ],
+    "rasterInstructions": 658617.3823957453,
+    "rasterInstructionsRange": [
+     657120.3733284101,
+     667490.7400691025
+    ],
+    "rasterCycles": 813778.7823959792,
+    "rasterCyclesRange": [
+     804032.6734690248,
+     863094.2737502051
+    ],
+    "uiInstructions": 1193886.1840229712,
+    "uiInstructionsRange": [
+     1162204.0825641772,
+     1196964.715630316
+    ],
+    "uiCycles": 3028219.1900737835,
+    "uiCyclesRange": [
+     2883691.1021796656,
+     3783430.9883384597
+    ],
+    "hash": [
+     "dd59736f"
+    ]
+   }
+  },
+  {
+   "label": "800, square caps",
+   "spec": "lines:n=800,cap=square",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 107.11412137773671,
+    "fpsRange": [
+     106.31906184854735,
+     107.71057127139011
+    ],
+    "rasterCpuMsPerFrame": 5.473593372274143,
+    "rasterCpuMsPerFrameRange": [
+     5.159238669767443,
+     5.502926648233487
+    ],
+    "uiCpuMsPerFrame": 3.270860054517134,
+    "uiCpuMsPerFrameRange": [
+     3.2337981054263567,
+     3.274345508448541
+    ],
+    "rasterP50": 5.985,
+    "rasterP50Range": [
+     5.764,
+     6.293
+    ],
+    "uiP50": 1.182,
+    "uiP50Range": [
+     1.169,
+     1.183
+    ],
+    "rasterInstructions": 7718249.038123238,
+    "rasterInstructionsRange": [
+     7600311.532492371,
+     8072745.942150524
+    ],
+    "rasterCycles": 4137917.0745819276,
+    "rasterCyclesRange": [
+     4088388.7122669653,
+     4263654.825668543
+    ],
+    "uiInstructions": 1127905.029906571,
+    "uiInstructionsRange": [
+     1094591.6378484599,
+     1170315.836261095
+    ],
+    "uiCycles": 3490891.119953575,
+    "uiCyclesRange": [
+     3446575.365148186,
+     3527587.9708984466
+    ],
+    "hash": [
+     "6bb36160"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.01188150871225,
+    "fpsRange": [
+     119.94446953684965,
+     120.19023258470091
+    ],
+    "rasterCpuMsPerFrame": 1.1416990872576178,
+    "rasterCpuMsPerFrameRange": [
+     0.9582669112343967,
+     1.1614722292817679
+    ],
+    "uiCpuMsPerFrame": 2.0417901243093923,
+    "uiCpuMsPerFrameRange": [
+     1.754386049930652,
+     2.101671540166205
+    ],
+    "rasterP50": 0.745,
+    "rasterP50Range": [
+     0.444,
+     0.823
+    ],
+    "uiP50": 0.284,
+    "uiP50Range": [
+     0.216,
+     0.358
+    ],
+    "rasterInstructions": 676697.8428501495,
+    "rasterInstructionsRange": [
+     660482.4834109801,
+     677345.3644123463
+    ],
+    "rasterCycles": 822003.7538862317,
+    "rasterCyclesRange": [
+     821826.712983256,
+     885398.0602585437
+    ],
+    "uiInstructions": 1172627.0214605157,
+    "uiInstructionsRange": [
+     1163982.090908761,
+     1178230.420004627
+    ],
+    "uiCycles": 2876361.5503394636,
+    "uiCyclesRange": [
+     2869219.685075862,
+     2945143.8176973998
+    ],
+    "hash": [
+     "6bb36160"
+    ]
+   }
+  },
+  {
+   "label": "800, 0.3 px wide",
+   "spec": "lines:n=800,w=0.3",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 112.04892836404912,
+    "fpsRange": [
+     110.14133862322329,
+     114.61198287355296
+    ],
+    "rasterCpuMsPerFrame": 5.587166185185185,
+    "rasterCpuMsPerFrameRange": [
+     5.098418295224313,
+     5.606849885196375
+    ],
+    "uiCpuMsPerFrame": 3.1754925422960723,
+    "uiCpuMsPerFrameRange": [
+     3.0415613096960925,
+     3.3287539496296294
+    ],
+    "rasterP50": 5.955,
+    "rasterP50Range": [
+     5.349,
+     6.058
+    ],
+    "uiP50": 1.154,
+    "uiP50Range": [
+     1.082,
+     1.258
+    ],
+    "rasterInstructions": 8361830.815540038,
+    "rasterInstructionsRange": [
+     8314099.359601325,
+     8531219.170759493
+    ],
+    "rasterCycles": 4556995.221338851,
+    "rasterCyclesRange": [
+     4555778.542220395,
+     4657342.3045420265
+    ],
+    "uiInstructions": 1136512.0802665818,
+    "uiInstructionsRange": [
+     1119086.2392669187,
+     1144500.0378417696
+    ],
+    "uiCycles": 3338769.41651181,
+    "uiCyclesRange": [
+     3311716.42727097,
+     3576199.1883113286
+    ],
+    "hash": [
+     "99eb9939"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.06251232636251,
+    "fpsRange": [
+     119.91600564767847,
+     120.3677534123593
+    ],
+    "rasterCpuMsPerFrame": 1.4186897257617728,
+    "rasterCpuMsPerFrameRange": [
+     1.374323244475138,
+     2.204089180055402
+    ],
+    "uiCpuMsPerFrame": 2.0176723711911357,
+    "uiCpuMsPerFrameRange": [
+     2.009508609116022,
+     3.609445167590028
+    ],
+    "rasterP50": 0.996,
+    "rasterP50Range": [
+     0.919,
+     2.144
+    ],
+    "uiP50": 0.319,
+    "uiP50Range": [
+     0.319,
+     1.219
+    ],
+    "rasterInstructions": 1273027.1387129957,
+    "rasterInstructionsRange": [
+     1269371.6095659914,
+     1273823.8932828635
+    ],
+    "rasterCycles": 1024646.3899469613,
+    "rasterCyclesRange": [
+     997309.873677899,
+     1073885.7686307386
+    ],
+    "uiInstructions": 1187680.3056204505,
+    "uiInstructionsRange": [
+     1160380.7741629528,
+     1192703.3973558827
+    ],
+    "uiCycles": 2916943.29895221,
+    "uiCyclesRange": [
+     2860716.7877367097,
+     3800026.157150096
+    ],
+    "hash": [
+     "99eb9939"
+    ]
+   }
+  },
+  {
+   "label": "800, 4 px wide",
+   "spec": "lines:n=800,w=4",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 101.33424528625764,
+    "fpsRange": [
+     99.95953385260177,
+     101.66253122759001
+    ],
+    "rasterCpuMsPerFrame": 5.685972302782324,
+    "rasterCpuMsPerFrameRange": [
+     5.631407158069884,
+     5.68609189379085
+    ],
+    "uiCpuMsPerFrame": 3.258443029950083,
+    "uiCpuMsPerFrameRange": [
+     3.168842797385621,
+     3.413981260229133
+    ],
+    "rasterP50": 7.021,
+    "rasterP50Range": [
+     6.932,
+     7.54
+    ],
+    "uiP50": 1.196,
+    "uiP50Range": [
+     1.154,
+     1.247
+    ],
+    "rasterInstructions": 8545018.568998152,
+    "rasterInstructionsRange": [
+     8543827.309084766,
+     8570243.396213988
+    ],
+    "rasterCycles": 4640314.5309916055,
+    "rasterCyclesRange": [
+     4579042.300714947,
+     4663719.527618286
+    ],
+    "uiInstructions": 1125451.2859349535,
+    "uiInstructionsRange": [
+     1114922.5226748737,
+     1130146.1377130134
+    ],
+    "uiCycles": 3559094.2921732143,
+    "uiCyclesRange": [
+     3325113.144508731,
+     3627691.137954148
+    ],
+    "hash": [
+     "c2ed33f4"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.09108959044781,
+    "fpsRange": [
+     119.96189133047707,
+     120.25401501414562
+    ],
+    "rasterCpuMsPerFrame": 2.0424955000000002,
+    "rasterCpuMsPerFrameRange": [
+     1.7091456398891967,
+     2.605310343922652
+    ],
+    "uiCpuMsPerFrame": 2.924172462603878,
+    "uiCpuMsPerFrameRange": [
+     2.091072346260388,
+     3.7096651229281767
+    ],
+    "rasterP50": 1.906,
+    "rasterP50Range": [
+     1.171,
+     2.621
+    ],
+    "uiP50": 0.921,
+    "uiP50Range": [
+     0.315,
+     1.356
+    ],
+    "rasterInstructions": 1827388.0369825219,
+    "rasterInstructionsRange": [
+     1824512.7197972653,
+     1830142.0351888703
+    ],
+    "rasterCycles": 1250980.246402895,
+    "rasterCyclesRange": [
+     1190756.3122676658,
+     1352974.621169299
+    ],
+    "uiInstructions": 1166784.6116742927,
+    "uiInstructionsRange": [
+     1159385.3589828303,
+     1226030.3915321925
+    ],
+    "uiCycles": 3049440.206464373,
+    "uiCyclesRange": [
+     2992832.8395752585,
+     4103792.721577777
+    ],
+    "hash": [
+     "c2ed33f4"
+    ]
+   }
+  },
+  {
+   "label": "800, 12 px wide",
+   "spec": "lines:n=800,w=12",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 88.07035525254923,
+    "fpsRange": [
+     82.5953760549191,
+     93.41598487126463
+    ],
+    "rasterCpuMsPerFrame": 6.4087682,
+    "rasterCpuMsPerFrameRange": [
+     6.117294796780684,
+     6.425479199288256
+    ],
+    "uiCpuMsPerFrame": 3.7226689943396227,
+    "uiCpuMsPerFrameRange": [
+     3.502147979879276,
+     3.800961286476868
+    ],
+    "rasterP50": 9.641,
+    "rasterP50Range": [
+     9.26,
+     9.712
+    ],
+    "uiP50": 1.348,
+    "uiP50Range": [
+     1.261,
+     1.405
+    ],
+    "rasterInstructions": 9114443.223250156,
+    "rasterInstructionsRange": [
+     8979244.856873157,
+     9263822.11154551
+    ],
+    "rasterCycles": 4971114.058251043,
+    "rasterCyclesRange": [
+     4961024.042943874,
+     4979606.0870089885
+    ],
+    "uiInstructions": 1175267.0910138765,
+    "uiInstructionsRange": [
+     1173765.3306938969,
+     1205487.2447944651
+    ],
+    "uiCycles": 3947298.6682421425,
+    "uiCyclesRange": [
+     3727074.207799359,
+     3985569.218061143
+    ],
+    "hash": [
+     "4a05bad5"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.01198125153546,
+    "fpsRange": [
+     119.91785792823133,
+     120.3061492394458
+    ],
+    "rasterCpuMsPerFrame": 1.8784638715469615,
+    "rasterCpuMsPerFrameRange": [
+     1.639164432132964,
+     1.9517745138504157
+    ],
+    "uiCpuMsPerFrame": 2.0932169806629837,
+    "uiCpuMsPerFrameRange": [
+     1.8874872756232686,
+     2.2358211274238227
+    ],
+    "rasterP50": 1.269,
+    "rasterP50Range": [
+     0.653,
+     1.278
+    ],
+    "uiP50": 0.29,
+    "uiP50Range": [
+     0.194,
+     0.343
+    ],
+    "rasterInstructions": 2368216.1683250153,
+    "rasterInstructionsRange": [
+     2346814.512986218,
+     2368682.203863224
+    ],
+    "rasterCycles": 1361004.0415095212,
+    "rasterCyclesRange": [
+     1345871.7872893396,
+     1475561.526236836
+    ],
+    "uiInstructions": 1156268.1799763064,
+    "uiInstructionsRange": [
+     1143408.9340459073,
+     1161975.8073268447
+    ],
+    "uiCycles": 3014541.394518707,
+    "uiCyclesRange": [
+     2945684.5982457395,
+     3081599.0548882666
+    ],
+    "hash": [
+     "4a05bad5"
+    ]
+   }
+  },
+  {
+   "label": "800, crossing",
+   "spec": "lines:n=800,layout=cross",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.23724086687636,
+    "fpsRange": [
+     118.73691818079764,
+     119.77359141611535
+    ],
+    "rasterCpuMsPerFrame": 5.420500536959554,
+    "rasterCpuMsPerFrameRange": [
+     5.3170612742382275,
+     5.5707394
+    ],
+    "uiCpuMsPerFrame": 3.1677804958448754,
+    "uiCpuMsPerFrameRange": [
+     3.0751762083916088,
+     3.250954518828452
+    ],
+    "rasterP50": 5.556,
+    "rasterP50Range": [
+     5.356,
+     5.687
+    ],
+    "uiP50": 1.136,
+    "uiP50Range": [
+     1.076,
+     1.165
+    ],
+    "rasterInstructions": 8472067.75719568,
+    "rasterInstructionsRange": [
+     8439673.09779937,
+     8491135.091880096
+    ],
+    "rasterCycles": 4641829.729803064,
+    "rasterCyclesRange": [
+     4585638.303083859,
+     4744981.671506704
+    ],
+    "uiInstructions": 1105423.918224619,
+    "uiInstructionsRange": [
+     1104575.8927349127,
+     1122168.5252594028
+    ],
+    "uiCycles": 3327084.012423577,
+    "uiCyclesRange": [
+     3219192.4603917655,
+     3423286.9429903883
+    ],
+    "hash": [
+     "bcd990d6"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.98533586421516,
+    "fpsRange": [
+     119.91287880926843,
+     120.19611889388361
+    ],
+    "rasterCpuMsPerFrame": 1.5580952825484764,
+    "rasterCpuMsPerFrameRange": [
+     1.5030025096685085,
+     2.2712490041551248
+    ],
+    "uiCpuMsPerFrame": 2.160892537396122,
+    "uiCpuMsPerFrameRange": [
+     2.0011158812154695,
+     3.5900191689750693
+    ],
+    "rasterP50": 1.042,
+    "rasterP50Range": [
+     1.026,
+     2.251
+    ],
+    "uiP50": 0.327,
+    "uiP50Range": [
+     0.275,
+     1.288
+    ],
+    "rasterInstructions": 1467558.116892115,
+    "rasterInstructionsRange": [
+     1455809.1970325478,
+     1472718.4248565484
+    ],
+    "rasterCycles": 1071812.0999235858,
+    "rasterCyclesRange": [
+     1059859.814065134,
+     1110526.5705664917
+    ],
+    "uiInstructions": 1164365.1999481416,
+    "uiInstructionsRange": [
+     1154031.7307048226,
+     1198820.6398312938
+    ],
+    "uiCycles": 3141407.4368834873,
+    "uiCyclesRange": [
+     3006446.558181645,
+     3750263.1178780603
+    ],
+    "hash": [
+     "bcd990d6"
+    ]
+   }
+  },
+  {
+   "label": "800 short ticks",
+   "spec": "lines:n=800,layout=ticks",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.01385644747018,
+    "fpsRange": [
+     120.00547836643624,
+     120.31198141387323
+    ],
+    "rasterCpuMsPerFrame": 5.26623364275862,
+    "rasterCpuMsPerFrameRange": [
+     5.116516462603879,
+     5.406340894736842
+    ],
+    "uiCpuMsPerFrame": 3.192489103448276,
+    "uiCpuMsPerFrameRange": [
+     3.164728157894737,
+     3.237368994459834
+    ],
+    "rasterP50": 5.149,
+    "rasterP50Range": [
+     5.054,
+     5.348
+    ],
+    "uiP50": 1.265,
+    "uiP50Range": [
+     1.141,
+     1.286
+    ],
+    "rasterInstructions": 8483736.567445384,
+    "rasterInstructionsRange": [
+     8465601.906932276,
+     8485846.361932259
+    ],
+    "rasterCycles": 4804158.929178437,
+    "rasterCyclesRange": [
+     4691470.475900125,
+     4900792.483783601
+    ],
+    "uiInstructions": 1219347.11968,
+    "uiInstructionsRange": [
+     1215389.6344040518,
+     1220277.416535579
+    ],
+    "uiCycles": 3803313.6650517485,
+    "uiCyclesRange": [
+     3748456.1381975403,
+     3817346.706477241
+    ],
+    "hash": [
+     "a27b81ba"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.00723031113742,
+    "fpsRange": [
+     119.92986926481495,
+     120.15207535327448
+    ],
+    "rasterCpuMsPerFrame": 2.2805920263157895,
+    "rasterCpuMsPerFrameRange": [
+     1.5238365552486188,
+     2.330451004149378
+    ],
+    "uiCpuMsPerFrame": 3.6116180844875343,
+    "uiCpuMsPerFrameRange": [
+     2.114567430939226,
+     3.7408923291839553
+    ],
+    "rasterP50": 2.234,
+    "rasterP50Range": [
+     0.972,
+     2.271
+    ],
+    "uiP50": 1.322,
+    "uiP50Range": [
+     0.299,
+     1.396
+    ],
+    "rasterInstructions": 1465378.1263036071,
+    "rasterInstructionsRange": [
+     1461688.736871127,
+     1465835.6728702344
+    ],
+    "rasterCycles": 1097022.1737918793,
+    "rasterCyclesRange": [
+     1071222.9264400308,
+     1113931.6551975224
+    ],
+    "uiInstructions": 1216674.003871619,
+    "uiInstructionsRange": [
+     1194164.5971973334,
+     1255467.7066673336
+    ],
+    "uiCycles": 3817209.630981468,
+    "uiCyclesRange": [
+     2986178.9148881463,
+     4024893.8137860014
+    ],
+    "hash": [
+     "a27b81ba"
+    ]
+   }
+  },
+  {
+   "label": "800, random",
+   "spec": "lines:n=800,layout=random",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.03576467270969,
+    "fpsRange": [
+     119.83072333608735,
+     120.32952339702877
+    ],
+    "rasterCpuMsPerFrame": 5.323212975138121,
+    "rasterCpuMsPerFrameRange": [
+     5.060643461218837,
+     5.427207368421053
+    ],
+    "uiCpuMsPerFrame": 3.257616319060774,
+    "uiCpuMsPerFrameRange": [
+     3.1559736440443213,
+     3.267989731301939
+    ],
+    "rasterP50": 5.272,
+    "rasterP50Range": [
+     4.969,
+     5.412
+    ],
+    "uiP50": 1.27,
+    "uiP50Range": [
+     1.198,
+     1.302
+    ],
+    "rasterInstructions": 8482182.364885325,
+    "rasterInstructionsRange": [
+     8470677.785824046,
+     8488504.411815973
+    ],
+    "rasterCycles": 4819405.618334152,
+    "rasterCyclesRange": [
+     4794022.744066234,
+     4905721.296621105
+    ],
+    "uiInstructions": 1231071.6276457887,
+    "uiInstructionsRange": [
+     1216230.0938507258,
+     1235190.5188638596
+    ],
+    "uiCycles": 3800222.3282041764,
+    "uiCyclesRange": [
+     3633318.9998297137,
+     3847807.579883801
+    ],
+    "hash": [
+     "220b3605"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.96209065013471,
+    "fpsRange": [
+     119.80642870329397,
+     120.3141462182472
+    ],
+    "rasterCpuMsPerFrame": 2.280179738227147,
+    "rasterCpuMsPerFrameRange": [
+     1.5009366229281766,
+     2.317064819694868
+    ],
+    "uiCpuMsPerFrame": 3.6283024252077563,
+    "uiCpuMsPerFrameRange": [
+     1.979994237569061,
+     3.7239928834951455
+    ],
+    "rasterP50": 2.259,
+    "rasterP50Range": [
+     0.952,
+     2.287
+    ],
+    "uiP50": 1.282,
+    "uiP50Range": [
+     0.243,
+     1.323
+    ],
+    "rasterInstructions": 1465443.9879972779,
+    "rasterInstructionsRange": [
+     1462590.1820243325,
+     1466752.8003629283
+    ],
+    "rasterCycles": 1120032.267486416,
+    "rasterCyclesRange": [
+     1089142.705039558,
+     1140446.8781457015
+    ],
+    "uiInstructions": 1240827.4543136966,
+    "uiInstructionsRange": [
+     1214096.6307534806,
+     1253364.5969374739
+    ],
+    "uiCycles": 3834505.4208037206,
+    "uiCyclesRange": [
+     2946825.7892613257,
+     3836141.3070596256
+    ],
+    "hash": [
+     "220b3605"
+    ]
+   }
+  },
+  {
+   "label": "800, opaque",
+   "spec": "lines:n=800,alpha=1",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 112.86638564765109,
+    "fpsRange": [
+     112.6533320842181,
+     118.32793323645511
+    ],
+    "rasterCpuMsPerFrame": 5.453196164948454,
+    "rasterCpuMsPerFrameRange": [
+     4.235805273876405,
+     5.47403746676514
+    ],
+    "uiCpuMsPerFrame": 3.2087176233382575,
+    "uiCpuMsPerFrameRange": [
+     2.0653667584269666,
+     3.2168634977908686
+    ],
+    "rasterP50": 5.718,
+    "rasterP50Range": [
+     3.902,
+     5.862
+    ],
+    "uiP50": 1.142,
+    "uiP50Range": [
+     0.564,
+     1.2
+    ],
+    "rasterInstructions": 8462700.808110738,
+    "rasterInstructionsRange": [
+     8406846.084221791,
+     8672549.956106372
+    ],
+    "rasterCycles": 4612442.852586483,
+    "rasterCyclesRange": [
+     4301105.866192722,
+     5125509.483983477
+    ],
+    "uiInstructions": 1126440.2194921188,
+    "uiInstructionsRange": [
+     1115763.8996228739,
+     1161532.8806742374
+    ],
+    "uiCycles": 3441314.7309252825,
+    "uiCyclesRange": [
+     2840540.0926997033,
+     3688583.792428291
+    ],
+    "hash": [
+     "0204a9b8"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.8425978688268,
+    "fpsRange": [
+     119.82266908812458,
+     120.43400823509117
+    ],
+    "rasterCpuMsPerFrame": 1.5226216523545706,
+    "rasterCpuMsPerFrameRange": [
+     1.29359509833795,
+     2.3194002458563534
+    ],
+    "uiCpuMsPerFrame": 2.0083192451523546,
+    "uiCpuMsPerFrameRange": [
+     1.7941823601108033,
+     3.615873114640884
+    ],
+    "rasterP50": 1.041,
+    "rasterP50Range": [
+     0.528,
+     2.256
+    ],
+    "uiP50": 0.323,
+    "uiP50Range": [
+     0.178,
+     1.313
+    ],
+    "rasterInstructions": 1460187.3924279534,
+    "rasterInstructionsRange": [
+     1445639.8454938023,
+     1460306.154442464
+    ],
+    "rasterCycles": 1104046.6167478352,
+    "rasterCyclesRange": [
+     1038575.9913410813,
+     1156465.4547637703
+    ],
+    "uiInstructions": 1174515.8163393629,
+    "uiInstructionsRange": [
+     1171034.8262926186,
+     1211279.1221979158
+    ],
+    "uiCycles": 3090183.0153064076,
+    "uiCyclesRange": [
+     2652617.5887618954,
+     3814439.260682849
+    ],
+    "hash": [
+     "0204a9b8"
+    ]
+   }
+  },
+  {
+   "label": "800, clipped",
+   "spec": "lines:n=800,clip=1",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.03907754125387,
+    "fpsRange": [
+     120.02750325503949,
+     120.3824808786958
+    ],
+    "rasterCpuMsPerFrame": 5.204200644044322,
+    "rasterCpuMsPerFrameRange": [
+     4.147950909972299,
+     5.288373566896552
+    ],
+    "uiCpuMsPerFrame": 3.285809362758621,
+    "uiCpuMsPerFrameRange": [
+     1.9500170207756233,
+     3.288513876731302
+    ],
+    "rasterP50": 5.195,
+    "rasterP50Range": [
+     3.631,
+     5.35
+    ],
+    "uiP50": 1.165,
+    "uiP50Range": [
+     0.34,
+     1.234
+    ],
+    "rasterInstructions": 8491286.36109459,
+    "rasterInstructionsRange": [
+     8479380.086131694,
+     8491562.790224811
+    ],
+    "rasterCycles": 4675573.504479998,
+    "rasterCyclesRange": [
+     4420539.651495036,
+     4761891.122635051
+    ],
+    "uiInstructions": 1153286.185077097,
+    "uiInstructionsRange": [
+     1146776.191902285,
+     1187296.6976318096
+    ],
+    "uiCycles": 3591890.1906963913,
+    "uiCyclesRange": [
+     2860441.8302753316,
+     3710476.098678314
+    ],
+    "hash": [
+     "18a56043"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.00159338215279,
+    "fpsRange": [
+     119.91907375239256,
+     120.40687225960185
+    ],
+    "rasterCpuMsPerFrame": 2.305153569655172,
+    "rasterCpuMsPerFrameRange": [
+     1.3014708224687934,
+     2.4010991493775933
+    ],
+    "uiCpuMsPerFrame": 3.6291946303448275,
+    "uiCpuMsPerFrameRange": [
+     1.7959546671289877,
+     3.746580035961272
+    ],
+    "rasterP50": 2.3,
+    "rasterP50Range": [
+     0.526,
+     2.327
+    ],
+    "uiP50": 1.291,
+    "uiP50Range": [
+     0.181,
+     1.376
+    ],
+    "rasterInstructions": 1478611.3892470887,
+    "rasterInstructionsRange": [
+     1461847.8581070057,
+     1479200.434829482
+    ],
+    "rasterCycles": 1127874.3305585263,
+    "rasterCyclesRange": [
+     1119651.3404702137,
+     1182488.4677692784
+    ],
+    "uiInstructions": 1214440.0798011317,
+    "uiInstructionsRange": [
+     1164530.7851481375,
+     1253101.518494114
+    ],
+    "uiCycles": 3786109.7137693735,
+    "uiCyclesRange": [
+     3045608.8159614843,
+     4096839.379188197
+    ],
+    "hash": [
+     "18a56043"
+    ]
+   }
+  },
+  {
+   "label": "800, turned canvas",
+   "spec": "lines:n=800,rot=1",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.14984449581414,
+    "fpsRange": [
+     120.07115795992783,
+     120.42024670183248
+    ],
+    "rasterCpuMsPerFrame": 5.224234333795014,
+    "rasterCpuMsPerFrameRange": [
+     3.6695933770718234,
+     5.404510459833795
+    ],
+    "uiCpuMsPerFrame": 3.1734996052631583,
+    "uiCpuMsPerFrameRange": [
+     1.7119518162983425,
+     3.1792811398891967
+    ],
+    "rasterP50": 5.239,
+    "rasterP50Range": [
+     2.981,
+     5.469
+    ],
+    "uiP50": 1.112,
+    "uiP50Range": [
+     0.253,
+     1.154
+    ],
+    "rasterInstructions": 8485027.371167615,
+    "rasterInstructionsRange": [
+     8460683.095246432,
+     8487264.127025304
+    ],
+    "rasterCycles": 4497097.977396807,
+    "rasterCyclesRange": [
+     4356360.207331363,
+     4836577.691653579
+    ],
+    "uiInstructions": 1147680.7159776192,
+    "uiInstructionsRange": [
+     1134670.1163273242,
+     1157670.1472097193
+    ],
+    "uiCycles": 3370787.5151839037,
+    "uiCyclesRange": [
+     2638008.723897584,
+     3589221.9561026664
+    ],
+    "hash": [
+     "aa209b1d"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.04458608892743,
+    "fpsRange": [
+     119.971000915402,
+     120.47061638583166
+    ],
+    "rasterCpuMsPerFrame": 2.1529724722991688,
+    "rasterCpuMsPerFrameRange": [
+     1.5027316509695292,
+     2.2889184868965518
+    ],
+    "uiCpuMsPerFrame": 3.547543472299169,
+    "uiCpuMsPerFrameRange": [
+     2.0756362797783936,
+     3.69091696
+    ],
+    "rasterP50": 2.18,
+    "rasterP50Range": [
+     1.043,
+     2.254
+    ],
+    "uiP50": 1.22,
+    "uiP50Range": [
+     0.321,
+     1.269
+    ],
+    "rasterInstructions": 1455440.9064327846,
+    "rasterInstructionsRange": [
+     1451144.7131434805,
+     1457902.3486128587
+    ],
+    "rasterCycles": 1116174.828266006,
+    "rasterCyclesRange": [
+     1068148.8352277076,
+     1156183.1896494527
+    ],
+    "uiInstructions": 1197294.7627621447,
+    "uiInstructionsRange": [
+     1173588.7120232305,
+     1206169.5127489702
+    ],
+    "uiCycles": 3843744.9851837833,
+    "uiCyclesRange": [
+     2973923.0290829395,
+     3915455.4763458665
+    ],
+    "hash": [
+     "aa209b1d"
+    ]
+   }
+  },
+  {
+   "label": "800 in 40 calls",
+   "spec": "lines:n=800,calls=40",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 110.23059443508147,
+    "fpsRange": [
+     110.02923989710025,
+     111.65988830683006
+    ],
+    "rasterCpuMsPerFrame": 5.474995546003017,
+    "rasterCpuMsPerFrameRange": [
+     5.187301778614458,
+     5.628806289120716
+    ],
+    "uiCpuMsPerFrame": 3.4806501490963857,
+    "uiCpuMsPerFrameRange": [
+     3.346641430700447,
+     3.485427453996983
+    ],
+    "rasterP50": 6.175,
+    "rasterP50Range": [
+     5.657,
+     6.582
+    ],
+    "uiP50": 1.493,
+    "uiP50Range": [
+     1.43,
+     1.501
+    ],
+    "rasterInstructions": 8374312.265589336,
+    "rasterInstructionsRange": [
+     8264952.09379914,
+     8453867.56228988
+    ],
+    "rasterCycles": 4536756.560954443,
+    "rasterCyclesRange": [
+     4360055.056914178,
+     4672839.7902374705
+    ],
+    "uiInstructions": 1364552.6496118167,
+    "uiInstructionsRange": [
+     1348476.9495502806,
+     1371665.4003303132
+    ],
+    "uiCycles": 3725002.452327638,
+    "uiCyclesRange": [
+     3439220.2870188705,
+     3821977.3854093496
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.0830801942086,
+    "fpsRange": [
+     120.02550791403647,
+     120.31608564577581
+    ],
+    "rasterCpuMsPerFrame": 1.7872681066481995,
+    "rasterCpuMsPerFrameRange": [
+     1.681084005524862,
+     2.7076313587257617
+    ],
+    "uiCpuMsPerFrame": 2.1651745997229916,
+    "uiCpuMsPerFrameRange": [
+     2.060079973756906,
+     3.8034886717451526
+    ],
+    "rasterP50": 1.269,
+    "rasterP50Range": [
+     1.102,
+     2.765
+    ],
+    "uiP50": 0.379,
+    "uiP50Range": [
+     0.284,
+     1.518
+    ],
+    "rasterInstructions": 1861439.1021979488,
+    "rasterInstructionsRange": [
+     1856828.1899817395,
+     1864373.4365776214
+    ],
+    "rasterCycles": 1265638.9659362934,
+    "rasterCyclesRange": [
+     1260418.8482401134,
+     1334669.6522914348
+    ],
+    "uiInstructions": 1401034.1287074646,
+    "uiInstructionsRange": [
+     1393279.7435746754,
+     1432405.0274159557
+    ],
+    "uiCycles": 3187171.518048772,
+    "uiCyclesRange": [
+     3110144.591011281,
+     4300425.8981766645
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   }
+  },
+  {
+   "label": "800 in 200 calls",
+   "spec": "lines:n=800,calls=200",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 112.19001897756499,
+    "fpsRange": [
+     103.38446154812748,
+     113.5049552524087
+    ],
+    "rasterCpuMsPerFrame": 5.387385226666667,
+    "rasterCpuMsPerFrameRange": [
+     5.1336759737609325,
+     5.720421210610933
+    ],
+    "uiCpuMsPerFrame": 3.94207884,
+    "uiCpuMsPerFrameRange": [
+     3.930514944606414,
+     3.968380734726688
+    ],
+    "rasterP50": 5.804,
+    "rasterP50Range": [
+     5.614,
+     6.829
+    ],
+    "uiP50": 2.358,
+    "uiP50Range": [
+     2.222,
+     2.373
+    ],
+    "rasterInstructions": 8518365.645746369,
+    "rasterInstructionsRange": [
+     8455936.787361525,
+     8583285.305673221
+    ],
+    "rasterCycles": 4689387.5504028285,
+    "rasterCyclesRange": [
+     4497973.222384923,
+     4915707.647152695
+    ],
+    "uiInstructions": 2304984.0521747847,
+    "uiInstructionsRange": [
+     2299074.932482259,
+     2333939.362161043
+    ],
+    "uiCycles": 4345208.126226207,
+    "uiCyclesRange": [
+     4302781.074599553,
+     4426961.723547766
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.02598678982685,
+    "fpsRange": [
+     119.84607912430694,
+     120.40402535269732
+    ],
+    "rasterCpuMsPerFrame": 2.601775472299169,
+    "rasterCpuMsPerFrameRange": [
+     2.22443217867036,
+     3.946143135359116
+    ],
+    "uiCpuMsPerFrame": 2.574467879501385,
+    "uiCpuMsPerFrameRange": [
+     2.159885416897507,
+     4.267872495856354
+    ],
+    "rasterP50": 1.833,
+    "rasterP50Range": [
+     0.973,
+     4.255
+    ],
+    "uiP50": 0.635,
+    "uiP50Range": [
+     0.311,
+     2.389
+    ],
+    "rasterInstructions": 3504098.0163628194,
+    "rasterInstructionsRange": [
+     3492112.5028983178,
+     3516799.594657984
+    ],
+    "rasterCycles": 1982878.229853423,
+    "rasterCyclesRange": [
+     1976700.8487792166,
+     2108517.3625460314
+    ],
+    "uiInstructions": 2304799.160201553,
+    "uiInstructionsRange": [
+     2291602.910871332,
+     2331310.842436793
+    ],
+    "uiCycles": 3530769.1479611327,
+    "uiCyclesRange": [
+     3461475.75594065,
+     4066988.6677978635
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   }
+  },
+  {
+   "label": "polyline, 800 points",
+   "spec": "lines:way=polygon,n=800",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 799,
+    "fps": 120.08373928123729,
+    "fpsRange": [
+     119.79331084785751,
+     120.3396436849528
+    ],
+    "rasterCpuMsPerFrame": 5.196088801664355,
+    "rasterCpuMsPerFrameRange": [
+     3.6548749198895027,
+     5.385223770083103
+    ],
+    "uiCpuMsPerFrame": 3.169137382271468,
+    "uiCpuMsPerFrameRange": [
+     1.799628247237569,
+     3.1722863730929265
+    ],
+    "rasterP50": 5.176,
+    "rasterP50Range": [
+     2.724,
+     5.426
+    ],
+    "uiP50": 1.184,
+    "uiP50Range": [
+     0.257,
+     1.266
+    ],
+    "rasterInstructions": 8462609.445640828,
+    "rasterInstructionsRange": [
+     8460625.007488418,
+     8480022.217982832
+    ],
+    "rasterCycles": 4622541.7343510045,
+    "rasterCyclesRange": [
+     4475079.907710355,
+     4840524.558567053
+    ],
+    "uiInstructions": 1229654.0661177684,
+    "uiInstructionsRange": [
+     1201574.340526989,
+     1249880.723129181
+    ],
+    "uiCycles": 3750579.539764863,
+    "uiCyclesRange": [
+     3012813.7495594523,
+     3828750.05092989
+    ],
+    "hash": [
+     "12cb2653"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 799,
+    "fps": 119.98027138806206,
+    "fpsRange": [
+     119.92625450180871,
+     120.26897118604283
+    ],
+    "rasterCpuMsPerFrame": 1.4990621980609418,
+    "rasterCpuMsPerFrameRange": [
+     1.2824384022191402,
+     2.343116016551724
+    ],
+    "uiCpuMsPerFrame": 2.055227055401662,
+    "uiCpuMsPerFrameRange": [
+     1.8158347475728154,
+     3.713878191724138
+    ],
+    "rasterP50": 1.028,
+    "rasterP50Range": [
+     0.515,
+     2.286
+    ],
+    "uiP50": 0.333,
+    "uiP50Range": [
+     0.189,
+     1.362
+    ],
+    "rasterInstructions": 1458780.835090262,
+    "rasterInstructionsRange": [
+     1453697.0319505215,
+     1459260.7858405933
+    ],
+    "rasterCycles": 1099060.5679440412,
+    "rasterCyclesRange": [
+     1039329.2247282906,
+     1162168.7300072135
+    ],
+    "uiInstructions": 1210049.2103117164,
+    "uiInstructionsRange": [
+     1206558.2087667887,
+     1263078.8755472277
+    ],
+    "uiCycles": 3070311.0505205607,
+    "uiCyclesRange": [
+     2741402.8357911254,
+     4055427.579173214
+    ],
+    "hash": [
+     "12cb2653"
+    ]
+   }
+  },
+  {
+   "label": "polyline, 3000 points",
+   "spec": "lines:way=polygon,n=3000",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 2999,
+    "fps": 103.71159746226847,
+    "fpsRange": [
+     81.84309997093159,
+     120.2103131802877
+    ],
+    "rasterCpuMsPerFrame": 9.2255555232,
+    "rasterCpuMsPerFrameRange": [
+     6.809509605809129,
+     11.611318064908723
+    ],
+    "uiCpuMsPerFrame": 4.2154946048,
+    "uiCpuMsPerFrameRange": [
+     3.8190991894882433,
+     4.961309174442191
+    ],
+    "rasterP50": 8.951,
+    "rasterP50Range": [
+     6.637,
+     12.022
+    ],
+    "uiP50": 2.036,
+    "uiP50Range": [
+     1.918,
+     2.348
+    ],
+    "rasterInstructions": 30283637.01472111,
+    "rasterInstructionsRange": [
+     30069745.997319575,
+     30808251.42805077
+    ],
+    "rasterCycles": 14096575.617127923,
+    "rasterCyclesRange": [
+     13694881.177905304,
+     15403893.715846535
+    ],
+    "uiInstructions": 1884238.399813865,
+    "uiInstructionsRange": [
+     1848628.7140220795,
+     2038703.9354479716
+    ],
+    "uiCycles": 4077835.970278345,
+    "uiCyclesRange": [
+     3794826.285312657,
+     5036904.990317834
+    ],
+    "hash": [
+     "2491b139"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 2999,
+    "fps": 119.93881459253363,
+    "fpsRange": [
+     119.88848710194158,
+     120.46030791316224
+    ],
+    "rasterCpuMsPerFrame": 2.528671440443213,
+    "rasterCpuMsPerFrameRange": [
+     2.1077090013850417,
+     3.7548827531034483
+    ],
+    "uiCpuMsPerFrame": 2.351803605263158,
+    "uiCpuMsPerFrameRange": [
+     1.962188889196676,
+     3.979451753103448
+    ],
+    "rasterP50": 1.807,
+    "rasterP50Range": [
+     0.885,
+     3.891
+    ],
+    "uiP50": 0.447,
+    "uiP50Range": [
+     0.244,
+     1.955
+    ],
+    "rasterInstructions": 4210551.782649078,
+    "rasterInstructionsRange": [
+     4209214.219523621,
+     4219284.610956705
+    ],
+    "rasterCycles": 1993707.2306175572,
+    "rasterCyclesRange": [
+     1893822.0522828144,
+     2052518.3300052523
+    ],
+    "uiInstructions": 1860934.5818202894,
+    "uiInstructionsRange": [
+     1859526.9084362925,
+     1890478.5849344614
+    ],
+    "uiCycles": 3368539.359514658,
+    "uiCyclesRange": [
+     3294194.9944139463,
+     4375402.4709021915
+    ],
+    "hash": [
+     "2491b139"
+    ]
+   }
+  },
+  {
+   "label": "800 hairlines (width 0)",
+   "spec": "lines:n=800,w=0",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 116.46808940495937,
+    "fpsRange": [
+     115.49334018870782,
+     117.67662198717142
+    ],
+    "rasterCpuMsPerFrame": 5.430245330955777,
+    "rasterCpuMsPerFrameRange": [
+     5.2676192273381295,
+     5.470370062059239
+    ],
+    "uiCpuMsPerFrame": 3.2255831692524684,
+    "uiCpuMsPerFrameRange": [
+     3.193204955777461,
+     3.242760444604316
+    ],
+    "rasterP50": 5.581,
+    "rasterP50Range": [
+     5.512,
+     5.768
+    ],
+    "uiP50": 1.17,
+    "uiP50Range": [
+     1.163,
+     1.199
+    ],
+    "rasterInstructions": 8399217.085489424,
+    "rasterInstructionsRange": [
+     8378289.115221142,
+     8523708.06982712
+    ],
+    "rasterCycles": 4633801.928842774,
+    "rasterCyclesRange": [
+     4541619.69073023,
+     4818998.594123413
+    ],
+    "uiInstructions": 1140936.2478997074,
+    "uiInstructionsRange": [
+     1127298.4481434599,
+     1165148.253013403
+    ],
+    "uiCycles": 3565218.762297944,
+    "uiCyclesRange": [
+     3426448.513183875,
+     3757189.7831404535
+    ],
+    "hash": [
+     "a8e70c1e"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 114.36588439071907,
+    "fpsRange": [
+     113.73623189705228,
+     117.44685488286545
+    ],
+    "rasterCpuMsPerFrame": 5.487885982481751,
+    "rasterCpuMsPerFrameRange": [
+     5.20022957708628,
+     5.561759565406977
+    ],
+    "uiCpuMsPerFrame": 3.2066301768033947,
+    "uiCpuMsPerFrameRange": [
+     3.1978955839416057,
+     3.2197434040697672
+    ],
+    "rasterP50": 5.808,
+    "rasterP50Range": [
+     5.394,
+     5.851
+    ],
+    "uiP50": 1.174,
+    "uiP50Range": [
+     1.171,
+     1.176
+    ],
+    "rasterInstructions": 8455629.44252979,
+    "rasterInstructionsRange": [
+     8311564.035198373,
+     8582294.791071009
+    ],
+    "rasterCycles": 4814480.761509326,
+    "rasterCyclesRange": [
+     4549348.399506918,
+     4833406.3936814135
+    ],
+    "uiInstructions": 1145801.2577163028,
+    "uiInstructionsRange": [
+     1131248.2391281396,
+     1166076.5876988843
+    ],
+    "uiCycles": 3467947.4031152907,
+    "uiCyclesRange": [
+     3418289.579764584,
+     3566984.474222306
+    ],
+    "hash": [
+     "a8e70c1e"
+    ]
+   }
+  },
+  {
+   "label": "100 blurred lines",
+   "spec": "lines:n=100,fx=blur",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 100,
+    "fps": 10.150648942635188,
+    "fpsRange": [
+     7.4136995942564585,
+     12.291956558896661
+    ],
+    "rasterCpuMsPerFrame": 65.0224183114754,
+    "rasterCpuMsPerFrameRange": [
+     50.11490364864865,
+     96.70415804444444
+    ],
+    "uiCpuMsPerFrame": 8.689948606557376,
+    "uiCpuMsPerFrameRange": [
+     6.802521202702703,
+     8.961355733333333
+    ],
+    "rasterP50": 87.628,
+    "rasterP50Range": [
+     80.433,
+     107.794
+    ],
+    "uiP50": 0.767,
+    "uiP50Range": [
+     0.752,
+     0.77
+    ],
+    "rasterInstructions": 66105298.958528675,
+    "rasterInstructionsRange": [
+     64225934.860134214,
+     73996967.29949094
+    ],
+    "rasterCycles": 96451223.3988749,
+    "rasterCyclesRange": [
+     86144652.29951794,
+     106108119.99750744
+    ],
+    "uiInstructions": 2506857.0822226964,
+    "uiInstructionsRange": [
+     2441315.964142276,
+     2724594.165869071
+    ],
+    "uiCycles": 8055455.196990601,
+    "uiCyclesRange": [
+     7720514.276016612,
+     8907830.935152382
+    ],
+    "hash": [
+     "699c48e4"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 100,
+    "fps": 10.327482841624935,
+    "fpsRange": [
+     9.051261333674265,
+     10.406757888403783
+    ],
+    "rasterCpuMsPerFrame": 63.59766847619048,
+    "rasterCpuMsPerFrameRange": [
+     63.585922703125,
+     76.46805053571428
+    ],
+    "uiCpuMsPerFrame": 8.239327171875,
+    "uiCpuMsPerFrameRange": [
+     7.51853426984127,
+     9.032948178571429
+    ],
+    "rasterP50": 71.291,
+    "rasterP50Range": [
+     71.276,
+     79.925
+    ],
+    "uiP50": 0.731,
+    "uiP50Range": [
+     0.671,
+     0.861
+    ],
+    "rasterInstructions": 70481829.54026756,
+    "rasterInstructionsRange": [
+     65649408.77772812,
+     77882028.3811989
+    ],
+    "rasterCycles": 87236634.30604427,
+    "rasterCyclesRange": [
+     82949077.27219504,
+     127330282.1810877
+    ],
+    "uiInstructions": 2660853.0370624997,
+    "uiInstructionsRange": [
+     2463140.0911740595,
+     2883603.7903289315
+    ],
+    "uiCycles": 8275385.215489769,
+    "uiCyclesRange": [
+     7825601.6145124985,
+     10430118.859302534
+    ],
+    "hash": [
+     "699c48e4"
+    ]
+   }
+  },
+  {
+   "label": "200 lines, overlay blend",
+   "spec": "lines:n=200,fx=overlay",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 200,
+    "fps": 19.10141666644711,
+    "fpsRange": [
+     17.745737415825914,
+     20.918251965450956
+    ],
+    "rasterCpuMsPerFrame": 30.33070275862069,
+    "rasterCpuMsPerFrameRange": [
+     25.006825062992124,
+     37.01496636448598
+    ],
+    "uiCpuMsPerFrame": 6.6529451379310345,
+    "uiCpuMsPerFrameRange": [
+     5.932453173228347,
+     6.986486214953271
+    ],
+    "rasterP50": 45.813,
+    "rasterP50Range": [
+     40.464,
+     49.547
+    ],
+    "uiP50": 1.106,
+    "uiP50Range": [
+     1.04,
+     1.214
+    ],
+    "rasterInstructions": 28395059.73702858,
+    "rasterInstructionsRange": [
+     27635905.059759654,
+     28946762.62265131
+    ],
+    "rasterCycles": 41431324.47175598,
+    "rasterCyclesRange": [
+     38855299.45452775,
+     44687422.44755212
+    ],
+    "uiInstructions": 1771716.2223482605,
+    "uiInstructionsRange": [
+     1733161.071961417,
+     1879750.5436886935
+    ],
+    "uiCycles": 6952455.930250853,
+    "uiCyclesRange": [
+     6235722.393900813,
+     7061216.925527356
+    ],
+    "hash": [
+     "fec02c81"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 200,
+    "fps": 19.443988350890535,
+    "fpsRange": [
+     17.775009850317957,
+     20.492918630981226
+    ],
+    "rasterCpuMsPerFrame": 30.626957085470085,
+    "rasterCpuMsPerFrameRange": [
+     26.181297215999997,
+     36.08610961111111
+    ],
+    "uiCpuMsPerFrame": 6.184704008,
+    "uiCpuMsPerFrameRange": [
+     6.158651384615385,
+     6.748833416666667
+    ],
+    "rasterP50": 44.314,
+    "rasterP50Range": [
+     43.378,
+     44.46
+    ],
+    "uiP50": 1.0,
+    "uiP50Range": [
+     0.996,
+     1.069
+    ],
+    "rasterInstructions": 27357149.94661898,
+    "rasterInstructionsRange": [
+     27181600.538143504,
+     27647888.6076769
+    ],
+    "rasterCycles": 39400415.842749625,
+    "rasterCyclesRange": [
+     36972047.97200905,
+     45799087.16602987
+    ],
+    "uiInstructions": 1793566.4817542715,
+    "uiInstructionsRange": [
+     1758696.2048312465,
+     1812439.5519427862
+    ],
+    "uiCycles": 6299601.638129202,
+    "uiCyclesRange": [
+     6196679.933668345,
+     6677657.171474186
+    ],
+    "hash": [
+     "fec02c81"
+    ]
+   }
+  },
+  {
+   "label": "800 lines, color filter",
+   "spec": "lines:n=800,fx=filter",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 110.00646744971775,
+    "fpsRange": [
+     102.91462518078531,
+     111.69375434122209
+    ],
+    "rasterCpuMsPerFrame": 5.5511623081570995,
+    "rasterCpuMsPerFrameRange": [
+     5.414430089285714,
+     5.819176132258065
+    ],
+    "uiCpuMsPerFrame": 3.312289986404834,
+    "uiCpuMsPerFrameRange": [
+     3.227964438988095,
+     3.3328741854838713
+    ],
+    "rasterP50": 5.92,
+    "rasterP50Range": [
+     5.891,
+     6.609
+    ],
+    "uiP50": 1.234,
+    "uiP50Range": [
+     1.2,
+     1.304
+    ],
+    "rasterInstructions": 8674637.07243399,
+    "rasterInstructionsRange": [
+     8518786.481405027,
+     8747961.857219597
+    ],
+    "rasterCycles": 5074523.534946919,
+    "rasterCyclesRange": [
+     4612252.616558638,
+     5080388.020365709
+    ],
+    "uiInstructions": 1144026.4222662353,
+    "uiInstructionsRange": [
+     1118850.0010554427,
+     1167228.5974374004
+    ],
+    "uiCycles": 3600587.8925598245,
+    "uiCyclesRange": [
+     3415930.2391782315,
+     3755691.215886994
+    ],
+    "hash": [
+     "ee13e93c"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 109.35858530543038,
+    "fpsRange": [
+     109.20213896785391,
+     110.59858244501581
+    ],
+    "rasterCpuMsPerFrame": 5.631136382978724,
+    "rasterCpuMsPerFrameRange": [
+     5.434194342342343,
+     5.743375480243161
+    ],
+    "uiCpuMsPerFrame": 3.2872646489361705,
+    "uiCpuMsPerFrameRange": [
+     3.2019272006079027,
+     3.321659855855856
+    ],
+    "rasterP50": 6.369,
+    "rasterP50Range": [
+     6.282,
+     6.373
+    ],
+    "uiP50": 1.214,
+    "uiP50Range": [
+     1.21,
+     1.255
+    ],
+    "rasterInstructions": 8648199.917756995,
+    "rasterInstructionsRange": [
+     8325185.831502941,
+     8910908.66776078
+    ],
+    "rasterCycles": 4921241.866300187,
+    "rasterCyclesRange": [
+     4803119.347168909,
+     5003951.050453851
+    ],
+    "uiInstructions": 1156636.2519133762,
+    "uiInstructionsRange": [
+     1104320.7443423525,
+     1185865.0216275507
+    ],
+    "uiCycles": 3603773.945076813,
+    "uiCyclesRange": [
+     3581573.4165367875,
+     3725292.404836891
+    ],
+    "hash": [
+     "ee13e93c"
+    ]
+   }
+  },
+  {
+   "label": "empty frame",
+   "spec": "lines:way=empty",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 0,
+    "fps": 119.95538524811631,
+    "fpsRange": [
+     119.94507411460877,
+     120.16435961607819
+    ],
+    "rasterCpuMsPerFrame": 1.0449945317679559,
+    "rasterCpuMsPerFrameRange": [
+     0.9278209029126214,
+     1.5647571466113415
+    ],
+    "uiCpuMsPerFrame": 1.9742298632596686,
+    "uiCpuMsPerFrameRange": [
+     1.7102405201109572,
+     3.429731474412171
+    ],
+    "rasterP50": 0.671,
+    "rasterP50Range": [
+     0.473,
+     1.432
+    ],
+    "uiP50": 0.243,
+    "uiP50Range": [
+     0.156,
+     1.023
+    ],
+    "rasterInstructions": 428917.22029885196,
+    "rasterInstructionsRange": [
+     423443.76717359474,
+     430555.13436179835
+    ],
+    "rasterCycles": 756659.5979492724,
+    "rasterCyclesRange": [
+     735020.5913704955,
+     776829.496756744
+    ],
+    "uiInstructions": 987570.1760233027,
+    "uiInstructionsRange": [
+     970994.6316306808,
+     1013703.4491066639
+    ],
+    "uiCycles": 2906109.6503724563,
+    "uiCyclesRange": [
+     2895856.288137106,
+     3763894.8808607934
+    ],
+    "hash": [
+     "0397f8c5"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 0,
+    "fps": 119.98507664836147,
+    "fpsRange": [
+     119.66841572608729,
+     120.27046381979991
+    ],
+    "rasterCpuMsPerFrame": 1.5584211634349032,
+    "rasterCpuMsPerFrameRange": [
+     1.0827012783933518,
+     1.6714112378976487
+    ],
+    "uiCpuMsPerFrame": 3.3503166440443213,
+    "uiCpuMsPerFrameRange": [
+     1.9852246689750692,
+     3.4737704965421856
+    ],
+    "rasterP50": 1.448,
+    "rasterP50Range": [
+     0.747,
+     1.468
+    ],
+    "uiP50": 0.999,
+    "uiP50Range": [
+     0.282,
+     1.121
+    ],
+    "rasterInstructions": 430394.6823835986,
+    "rasterInstructionsRange": [
+     427074.64060394745,
+     431541.75411489845
+    ],
+    "rasterCycles": 749933.1056009101,
+    "rasterCyclesRange": [
+     723090.6596533564,
+     771646.218295462
+    ],
+    "uiInstructions": 1021243.6637405781,
+    "uiInstructionsRange": [
+     995596.293242747,
+     1027852.4382777051
+    ],
+    "uiCycles": 3700063.417067095,
+    "uiCyclesRange": [
+     2893471.457989086,
+     3702670.8581967372
+    ],
+    "hash": [
+     "0397f8c5"
+    ]
+   }
+  },
+  {
+   "label": "800 drawLine calls",
+   "spec": "lines:way=drawline,n=800",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 112.48721206768136,
+    "fpsRange": [
+     109.17442995054031,
+     113.22007678741431
+    ],
+    "rasterCpuMsPerFrame": 5.195130679355783,
+    "rasterCpuMsPerFrameRange": [
+     5.185186284023668,
+     5.293129097560976
+    ],
+    "uiCpuMsPerFrame": 4.052651429878049,
+    "uiCpuMsPerFrameRange": [
+     3.9653653476331363,
+     4.272184462664715
+    ],
+    "rasterP50": 5.627,
+    "rasterP50Range": [
+     5.431,
+     5.983
+    ],
+    "uiP50": 2.131,
+    "uiP50Range": [
+     2.003,
+     2.153
+    ],
+    "rasterInstructions": 8282001.154599557,
+    "rasterInstructionsRange": [
+     8197296.098998463,
+     8379814.984282153
+    ],
+    "rasterCycles": 4657775.868980543,
+    "rasterCyclesRange": [
+     4488525.804274259,
+     4671748.161969131
+    ],
+    "uiInstructions": 4383734.095856085,
+    "uiInstructionsRange": [
+     4330559.955256714,
+     4432220.880101836
+    ],
+    "uiCycles": 4421010.3365114415,
+    "uiCyclesRange": [
+     3966507.837010756,
+     4436566.167477424
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 109.94532839638335,
+    "fpsRange": [
+     106.83817489159996,
+     112.32594463460835
+    ],
+    "rasterCpuMsPerFrame": 5.343870072485207,
+    "rasterCpuMsPerFrameRange": [
+     5.233398535552194,
+     5.4646993125972
+    ],
+    "uiCpuMsPerFrame": 4.143899015128593,
+    "uiCpuMsPerFrameRange": [
+     4.082799878698225,
+     4.5139963125972
+    ],
+    "rasterP50": 5.975,
+    "rasterP50Range": [
+     5.681,
+     5.988
+    ],
+    "uiP50": 2.123,
+    "uiP50Range": [
+     2.117,
+     2.364
+    ],
+    "rasterInstructions": 8327251.636167696,
+    "rasterInstructionsRange": [
+     8203829.274585667,
+     8576693.696245046
+    ],
+    "rasterCycles": 4717021.159027481,
+    "rasterCyclesRange": [
+     4604238.686441749,
+     4772054.893982229
+    ],
+    "uiInstructions": 4393672.713330344,
+    "uiInstructionsRange": [
+     4329678.937922091,
+     4546157.7364658
+    ],
+    "uiCycles": 4376585.320903485,
+    "uiCyclesRange": [
+     4197782.619764757,
+     4715039.104286036
+    ],
+    "hash": [
+     "391f59b5"
+    ]
+   }
+  },
+  {
+   "label": "800 as one drawVertices",
+   "spec": "lines:way=vertices,n=800",
+   "unpatched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 120.02173339603902,
+    "fpsRange": [
+     119.81308494963453,
+     120.23893668921755
+    ],
+    "rasterCpuMsPerFrame": 1.5913506191135733,
+    "rasterCpuMsPerFrameRange": [
+     1.0486270607734807,
+     1.6029932780082987
+    ],
+    "uiCpuMsPerFrame": 3.6941789017980633,
+    "uiCpuMsPerFrameRange": [
+     1.9992581988950275,
+     3.7454186163434904
+    ],
+    "rasterP50": 1.468,
+    "rasterP50Range": [
+     0.712,
+     1.486
+    ],
+    "uiP50": 1.442,
+    "uiP50Range": [
+     0.272,
+     1.446
+    ],
+    "rasterInstructions": 465662.67233193945,
+    "rasterInstructionsRange": [
+     460548.0144812474,
+     466184.31090330443
+    ],
+    "rasterCycles": 780840.0067166835,
+    "rasterCyclesRange": [
+     755573.7827010337,
+     825434.8293836749
+    ],
+    "uiInstructions": 1450220.9621459492,
+    "uiInstructionsRange": [
+     1421380.2934140307,
+     1456607.86729548
+    ],
+    "uiCycles": 3844346.6181777064,
+    "uiCyclesRange": [
+     3097932.840419654,
+     3927329.5731896027
+    ],
+    "hash": [
+     "dd59736f"
+    ]
+   },
+   "patched": {
+    "rounds": 3,
+    "segments": 800,
+    "fps": 119.95957927085178,
+    "fpsRange": [
+     119.78561361507839,
+     120.44739978984006
+    ],
+    "rasterCpuMsPerFrame": 1.5980702965517242,
+    "rasterCpuMsPerFrameRange": [
+     1.0847177091412743,
+     1.609271391966759
+    ],
+    "uiCpuMsPerFrame": 3.728231035862069,
+    "uiCpuMsPerFrameRange": [
+     2.1875548254847645,
+     3.7755648836565094
+    ],
+    "rasterP50": 1.492,
+    "rasterP50Range": [
+     0.743,
+     1.496
+    ],
+    "uiP50": 1.475,
+    "uiP50Range": [
+     0.37,
+     1.512
+    ],
+    "rasterInstructions": 465102.2703296824,
+    "rasterInstructionsRange": [
+     460038.0478395402,
+     468341.84911430744
+    ],
+    "rasterCycles": 798691.4929123294,
+    "rasterCyclesRange": [
+     766554.5701558032,
+     804741.8539561268
+    ],
+    "uiInstructions": 1434766.313615725,
+    "uiInstructionsRange": [
+     1412837.2107025622,
+     1460713.293163517
+    ],
+    "uiCycles": 3878814.626517511,
+    "uiCyclesRange": [
+     2992519.1799251246,
+     3985944.2485444285
+    ],
+    "hash": [
+     "dd59736f"
+    ]
+   }
+  }
+ ]
+}
