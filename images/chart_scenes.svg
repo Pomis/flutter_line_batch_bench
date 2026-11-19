@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+<rect width="920" height="520" fill="#fcfcfb"/>
+<text x="24.0" y="36.0" font-size="17" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Raster thread work per frame, eight scenes drawn with drawRawPoints</text>
+<text x="24.0" y="58.0" font-size="12.5" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Million CPU instructions per frame. OnePlus 6, Impeller on OpenGL ES, profile build, middle of three paired rounds.</text>
+<rect x="24" y="76" width="12" height="12" rx="2" fill="#2a78d6"/><text x="42.0" y="86.0" font-size="13" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Unpatched engine</text><rect x="194" y="76" width="12" height="12" rx="2" fill="#eb6834"/><text x="212.0" y="86.0" font-size="13" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Patched engine</text>
+<line x1="190.0" y1="106" x2="190.0" y2="456" stroke="#c3c2b7" stroke-width="1"/>
+<text x="190.0" y="474.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<line x1="342.5" y1="106" x2="342.5" y2="456" stroke="#e1e0d9" stroke-width="1"/>
+<text x="342.5" y="474.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">20</text>
+<line x1="495.0" y1="106" x2="495.0" y2="456" stroke="#e1e0d9" stroke-width="1"/>
+<text x="495.0" y="474.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">40</text>
+<line x1="647.5" y1="106" x2="647.5" y2="456" stroke="#e1e0d9" stroke-width="1"/>
+<text x="647.5" y="474.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">60</text>
+<line x1="800.0" y1="106" x2="800.0" y2="456" stroke="#e1e0d9" stroke-width="1"/>
+<text x="800.0" y="474.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">80</text>
+<text x="190.0" y="496.0" font-size="12" fill="#898781" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Million instructions per frame</text>
+<text x="178.0" y="123.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Long polyline</text>
+<text x="178.0" y="138.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3,999 segments</text>
+<path d="M190.0,112.0 h538.3 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-538.3 z" fill="#2a78d6"/>
+<path d="M190.0,127.0 h40.5 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-40.5 z" fill="#eb6834"/>
+<text x="740.3" y="123.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">71.1</text>
+<text x="242.5" y="138.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5.8  (−92%)</text>
+<text x="178.0" y="167.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Line chart</text>
+<text x="178.0" y="182.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1,903 segments</text>
+<path d="M190.0,156.0 h259.5 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-259.5 z" fill="#2a78d6"/>
+<path d="M190.0,171.0 h23.2 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-23.2 z" fill="#eb6834"/>
+<text x="461.5" y="167.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">34.6</text>
+<text x="225.2" y="182.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3.6  (−90%)</text>
+<text x="178.0" y="211.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Wireframe sphere</text>
+<text x="178.0" y="226.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1,880 segments</text>
+<path d="M190.0,200.0 h255.1 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-255.1 z" fill="#2a78d6"/>
+<path d="M190.0,215.0 h19.7 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-19.7 z" fill="#eb6834"/>
+<text x="457.1" y="211.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">34.0</text>
+<text x="221.7" y="226.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3.1  (−91%)</text>
+<text x="178.0" y="255.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Starfield</text>
+<text x="178.0" y="270.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1,500 segments</text>
+<path d="M190.0,244.0 h205.2 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-205.2 z" fill="#2a78d6"/>
+<path d="M190.0,259.0 h17.2 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-17.2 z" fill="#eb6834"/>
+<text x="407.2" y="255.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">27.4</text>
+<text x="219.2" y="270.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2.8  (−90%)</text>
+<text x="178.0" y="299.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Hatched shapes</text>
+<text x="178.0" y="314.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">963 segments</text>
+<path d="M190.0,288.0 h133.7 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-133.7 z" fill="#2a78d6"/>
+<path d="M190.0,303.0 h13.8 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-13.8 z" fill="#eb6834"/>
+<text x="335.7" y="299.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">18.1</text>
+<text x="215.8" y="314.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2.3  (−87%)</text>
+<text x="178.0" y="343.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Rain</text>
+<text x="178.0" y="358.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">900 segments</text>
+<path d="M190.0,332.0 h123.3 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-123.3 z" fill="#2a78d6"/>
+<path d="M190.0,347.0 h10.9 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-10.9 z" fill="#eb6834"/>
+<text x="325.3" y="343.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">16.7</text>
+<text x="212.9" y="358.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2.0  (−88%)</text>
+<text x="178.0" y="387.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Waveform</text>
+<text x="178.0" y="402.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">548 segments</text>
+<path d="M190.0,376.0 h73.2 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-73.2 z" fill="#2a78d6"/>
+<path d="M190.0,391.0 h3.2 a3.222895878994886,3.222895878994886 0 0 1 3.222895878994886,3.222895878994886 v6.6 a3.222895878994886,3.222895878994886 0 0 1 -3.222895878994886,3.222895878994886 h-3.2 z" fill="#eb6834"/>
+<text x="275.2" y="387.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">10.1</text>
+<text x="204.4" y="402.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0.8  (−92%)</text>
+<text x="178.0" y="431.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Graph paper</text>
+<text x="178.0" y="446.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">108 segments</text>
+<path d="M190.0,420.0 h15.1 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-15.1 z" fill="#2a78d6"/>
+<path d="M190.0,435.0 h2.7 a2.6608977024978566,2.6608977024978566 0 0 1 2.6608977024978566,2.6608977024978566 v7.7 a2.6608977024978566,2.6608977024978566 0 0 1 -2.6608977024978566,2.6608977024978566 h-2.7 z" fill="#eb6834"/>
+<text x="217.1" y="431.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2.5</text>
+<text x="203.3" y="446.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0.7  (−72%)</text>
+</svg>
