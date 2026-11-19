@@ -45,15 +45,15 @@ Unpatched against patched engine, 37 scenarios, three rounds, the two engines al
 
 ### The same 800 lines, five ways, on stock Flutter
 
-Million raster thread instructions per frame, with the frames per second the phone delivered. One `drawRawPoints(PointMode.lines)` call costs the same as 800 `drawLine` calls on every Impeller version measured. 3.50.0 made each draw cheaper and kept the per-segment loop. The last two columns are the locally built engine from the paired run below.
+Million raster thread instructions per frame, with the frames per second the phone delivered. One `drawRawPoints(PointMode.lines)` call costs the same as 800 `drawLine` calls, on the current stable release and on master. The last two columns are the locally built engine from the paired run below.
 
-| Way of drawing 800 lines | Flutter 3.47.7 | Flutter 3.50.0 | 3.50.0, Impeller off | master, unpatched | master, patched |
-|---|---|---|---|---|---|
-| empty frame | 0.61 (60 fps) | 0.61 (60 fps) | 0.31 (60 fps) | 0.66 | 0.66 |
-| 800 drawLine calls | 17.07 (59 fps) | 12.66 (59 fps) | 65.90 (45 fps) | 15.01 | 15.01 |
-| 800 in one drawRawPoints | 16.96 (59 fps) | 12.54 (59 fps) | 64.70 (47 fps) | 14.89 | 1.71 |
-| 800 as one stroked path | 1.72 (59 fps) | 1.73 (60 fps) | 125.60 (36 fps) | not run | not run |
-| 800 as one drawVertices | 0.66 (59 fps) | 0.66 (60 fps) | 0.46 (60 fps) | 0.71 | 0.72 |
+| Way of drawing 800 lines | Flutter 3.50.0 | 3.50.0, Impeller off | master, unpatched | master, patched |
+|---|---|---|---|---|
+| empty frame | 0.61 (60 fps) | 0.31 (60 fps) | 0.66 | 0.66 |
+| 800 drawLine calls | 12.66 (59 fps) | 65.90 (45 fps) | 15.01 | 15.01 |
+| 800 in one drawRawPoints | 12.54 (59 fps) | 64.70 (47 fps) | 14.89 | 1.71 |
+| 800 as one stroked path | 1.73 (60 fps) | 125.60 (36 fps) | not run | not run |
+| 800 as one drawVertices | 0.66 (60 fps) | 0.46 (60 fps) | 0.71 | 0.72 |
 
 "Impeller off" is the same 3.50.0 build started with `--ez enable-impeller false`, which falls back to the old Skia renderer. It is slower still on this test, so the old renderer is not a way around it.
 
