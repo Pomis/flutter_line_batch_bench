@@ -1,40 +1,28 @@
 # Flutter line batch bench
 
-A small Flutter app and a runner that measure what it costs to draw straight lines, by the way the lines are handed to the engine. It draws nothing else, so the numbers are about lines only.
+A small Flutter app and a runner that measure what it costs to draw straight lines, by the way the lines are handed to the engine. The app draws nothing else, so the numbers are about lines only.
 
-It was written to measure one thing in Impeller: `Canvas.drawPoints` and `Canvas.drawRawPoints` with `PointMode.lines` or `PointMode.polygon` are one call from Dart, but the engine turns them back into one draw call per segment. A patch that draws them with a single draw call is on this branch:
+It was written to measure one thing in Impeller. `Canvas.drawPoints` and `Canvas.drawRawPoints` with `PointMode.lines` or `PointMode.polygon` are one call from Dart, but the engine turns the call back into one draw call per segment. A patch that draws the whole call with a single draw is on this branch, as one commit on top of Flutter master:
 
 https://github.com/Pomis/flutter/tree/impeller-batch-drawpoints-lines
 
-## The cause
+## Result
 
-`DlDispatcherBase::drawPoints` loops over `Canvas::DrawLine` for `PointMode.lines` and `PointMode.polygon`, so every segment becomes an entity and a draw call of its own:
+The unpatched and the patched engine on three phones and two Impeller backends:
 
-https://github.com/flutter/flutter/blob/2331a7f1961baf285157fc4833dd937643f46c3f/engine/src/flutter/impeller/display_list/dl_dispatcher.cc#L662-L678
+| Phone | Backend | Screen | Scenes: raster instructions | 800 lines in one call: instructions per frame (M) | 1,600 lines in one call: fps |
+|---|---|---|---|---|---|
+| OnePlus 6 | OpenGL ES | 60 Hz | -72% to -92% | 14.89 → 1.71 | 59.5 → 59.5 |
+| Pixel 5 | OpenGL ES | 90 Hz | -61% to -88% | 16.00 → 2.42 | 71.2 → 89.9 |
+| Pixel 8 | Vulkan | 120 Hz | -68% to -90% | 8.35 → 1.44 | 52.2 → 120.0 |
 
-`PointMode.points` does not have this problem. It goes through `PointFieldGeometry`, which puts every point into one vertex buffer and one draw. The patch does the same for lines with a `LineFieldGeometry`: every segment is tessellated the way `LineGeometry` does it, and the strips are joined into one. It keeps the old per-segment loop where one draw could differ from separate draws: hairlines, mask blurs, image and color filters, advanced blend modes and SDF rendering.
+Instructions are CPU instructions on the raster thread, per frame, unpatched → patched. Both engines draw the same pixels in all 37 scenarios on every phone.
 
-## What it shows
-
-![Raster thread work per frame for eight scenes, unpatched and patched engine](images/chart_scenes.png)
-
-![Raster thread work per frame by number of lines in one call](images/chart_scaling.png)
-
-Measured on a OnePlus 6 (Snapdragon 845, Adreno 630, Android 10, 60 Hz). Impeller uses its OpenGL ES backend on this phone. Flutter master at `2331a7f`, engine built locally with and without the patch, profile mode.
-
-The same run on three phones, two backends:
-
-| Phone | Backend | Screen | Scenes, raster instructions | 800 lines, instructions (M) | 1,600 lines, fps | 3,000-point polyline, fps |
-|---|---|---|---|---|---|---|
-| OnePlus 6 | OpenGL ES | 60 Hz | -72% to -92% | 14.89 to 1.71 | 59.5 to 59.5 | 46.0 to 59.5 |
-| Pixel 5 | OpenGL ES | 90 Hz | -61% to -88% | 16.00 to 2.42 | 71.2 to 89.9 | 52.7 to 89.9 |
-| Pixel 8 | Vulkan | 120 Hz | -68% to -90% | 8.35 to 1.44 | 52.2 to 120.0 | 103.7 to 119.9 |
-
-The change is in raster thread instructions per frame, unpatched to patched. All 37 scenarios produced the same pixel hash on both engines on every phone.
+![The hatched shapes scene on three phones, unpatched and patched engine](images/chart_phones.png)
 
 ## The scenes
 
-Eight small drawings of the kind apps make out of lines, all drawn with `drawRawPoints`, all moving every frame. These are recordings from the phone:
+Eight small drawings of the kind apps make out of lines, all drawn with `drawRawPoints`, all moving every frame. These are recordings from a phone:
 
 | | |
 |---|---|
@@ -49,117 +37,135 @@ Eight small drawings of the kind apps make out of lines, all drawn with `drawRaw
 
 Besides the scenes there is a `lines` scenario: one set of plain lines whose number, cap, width, layout and way of drawing are set one at a time.
 
-## Results
+## The cause and the fix
 
-Unpatched against patched engine, 37 scenarios, three rounds, the two engines alternating. Instructions are millions per frame on the raster thread. CPU time is the raster thread's own time per frame. All 37 scenarios produced the same pixel hash on both engines.
+`DlDispatcherBase::drawPoints` loops over `Canvas::DrawLine` for `PointMode.lines` and `PointMode.polygon`, so every segment becomes an entity and a draw call of its own:
 
-### The same 800 lines, five ways, on stock Flutter
+https://github.com/flutter/flutter/blob/2331a7f1961baf285157fc4833dd937643f46c3f/engine/src/flutter/impeller/display_list/dl_dispatcher.cc#L662-L678
 
-Million raster thread instructions per frame, with the frames per second the phone delivered. One `drawRawPoints(PointMode.lines)` call costs the same as 800 `drawLine` calls, on the current stable release and on master. The last two columns are the locally built engine from the paired run below.
+`PointMode.points` does not have this problem. It goes through `PointFieldGeometry`, which puts every point into one vertex buffer and one draw.
 
-| Way of drawing 800 lines | Flutter 3.50.0 | 3.50.0, Impeller off | master, unpatched | master, patched |
+The patch does the same for lines with a `LineFieldGeometry`: every segment is tessellated the way `LineGeometry` does it, and the strips are joined into one. It keeps the old per-segment loop where one draw could differ from separate draws: hairlines, mask blurs, image and color filters, advanced blend modes and SDF rendering.
+
+## Results in full
+
+Flutter master at `2331a7f`, the engine built locally with and without the patch (`android_profile_arm64`), profile mode. The two engines are installed as two apps and play 37 scenarios against each other: one launch per scenario and engine, the engines alternating, three rounds. Every figure is the middle of the three.
+
+| Phone | Chip | Android | Screen | Impeller backend |
 |---|---|---|---|---|
-| empty frame | 0.61 (60 fps) | 0.31 (60 fps) | 0.66 | 0.66 |
-| 800 drawLine calls | 12.66 (59 fps) | 65.90 (45 fps) | 15.01 | 15.01 |
-| 800 in one drawRawPoints | 12.54 (59 fps) | 64.70 (47 fps) | 14.89 | 1.71 |
-| 800 as one stroked path | 1.73 (60 fps) | 125.60 (36 fps) | not run | not run |
-| 800 as one drawVertices | 0.66 (60 fps) | 0.46 (60 fps) | 0.71 | 0.72 |
+| OnePlus 6 | Snapdragon 845, Adreno 630 | 10 | 60 Hz | OpenGL ES |
+| Pixel 5 | Snapdragon 765G, Adreno 620 | 14 | 90 Hz | OpenGL ES |
+| Pixel 8 | Tensor G3, Mali-G715 | 16 | 120 Hz | Vulkan |
 
-"Impeller off" is the same 3.50.0 build started with `--ez enable-impeller false`, which falls back to the old Skia renderer. It is slower still on this test, so the old renderer is not a way around it.
+Unless a table says otherwise, a cell is millions of raster thread instructions per frame, unpatched → patched.
 
 ### Scenes
 
-OnePlus 6. This table and the next two are from that phone.
+| Scene | OnePlus 6 | Pixel 5 | Pixel 8 |
+|---|---|---|---|
+| Hatched shapes (963 segments) | 18.06 → 2.33 | 18.58 → 2.98 | 10.22 → 1.84 |
+| Line chart (1,903 segments) | 34.55 → 3.57 | 36.68 → 4.46 | 19.66 → 3.16 |
+| Graph paper (108 segments) | 2.51 → 0.70 | 2.98 → 1.16 | 1.42 → 0.45 |
+| Waveform (548 segments) | 10.13 → 0.85 | 10.72 → 1.31 | 5.53 → 0.58 |
+| Starfield (1,500 segments) | 27.43 → 2.78 | 29.49 → 3.55 | 15.51 → 2.44 |
+| Wireframe sphere (1,880 segments) | 33.97 → 3.11 | 36.11 → 4.39 | 19.17 → 2.78 |
+| Long polyline (3,999 segments) | 71.12 → 5.84 | 76.06 → 9.38 | 40.39 → 5.43 |
+| Rain (900 segments) | 16.70 → 1.96 | 17.83 → 2.63 | 9.49 → 1.66 |
 
-| Scenario | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
-|---|---|---|---|---|---|---|---|---|
-| Hatched shapes | 963 | 18.06 | 2.33 | -87% | 10.3 | 3.3 | 59.7 | 59.5 |
-| Line chart | 1,903 | 34.55 | 3.57 | -90% | 12.0 | 4.1 | 59.6 | 59.5 |
-| Graph paper | 108 | 2.51 | 0.70 | -72% | 3.3 | 2.0 | 59.5 | 59.5 |
-| Waveform | 548 | 10.13 | 0.85 | -92% | 8.7 | 2.1 | 59.6 | 59.5 |
-| Starfield | 1,500 | 27.43 | 2.78 | -90% | 11.1 | 3.5 | 59.6 | 59.5 |
-| Wireframe sphere | 1,880 | 33.97 | 3.11 | -91% | 11.6 | 3.9 | 59.6 | 59.5 |
-| Long polyline | 3,999 | 71.12 | 5.84 | -92% | 23.2 | 5.9 | 40.0 | 59.6 |
-| Rain | 900 | 16.70 | 1.96 | -88% | 10.0 | 2.9 | 59.6 | 59.5 |
+Segment counts are from the OnePlus 6. Three scenes fit their line count to the screen, so the hatch, grid and waveform scenes have a few lines fewer on the Pixel 5.
 
-### Plain lines, one property changed at a time
+![Raster thread work per frame for eight scenes on the OnePlus 6](images/chart_scenes.png)
 
-800 parallel lines, 1.2 px wide, round caps, 70% opaque, unless the row says otherwise.
+### By the number of lines in one call
 
-| Scenario | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
-|---|---|---|---|---|---|---|---|---|
-| 2 lines | 2 | 0.69 | 0.68 | -1% | 2.1 | 2.0 | 59.5 | 59.5 |
-| 10 lines | 10 | 0.85 | 0.69 | -18% | 2.2 | 2.1 | 59.5 | 59.5 |
-| 50 lines | 50 | 1.56 | 0.74 | -52% | 2.6 | 2.0 | 59.6 | 59.5 |
-| 100 lines | 100 | 2.46 | 0.81 | -67% | 3.3 | 2.1 | 59.6 | 59.5 |
-| 400 lines | 400 | 7.81 | 1.20 | -85% | 7.3 | 2.4 | 59.6 | 59.6 |
-| 800 lines | 800 | 14.89 | 1.71 | -89% | 9.8 | 2.8 | 59.6 | 59.6 |
-| 1600 lines | 1,600 | 29.26 | 2.78 | -91% | 11.4 | 3.7 | 59.5 | 59.5 |
-| 800, butt caps | 800 | 14.36 | 0.91 | -94% | 9.7 | 2.2 | 59.5 | 59.5 |
-| 800, square caps | 800 | 14.37 | 0.93 | -94% | 9.7 | 2.2 | 59.6 | 59.5 |
-| 800, 0.3 px wide | 800 | 14.84 | 1.55 | -90% | 9.8 | 2.7 | 59.6 | 59.5 |
-| 800, 4 px wide | 800 | 15.11 | 2.12 | -86% | 9.8 | 3.2 | 59.6 | 59.5 |
-| 800, 12 px wide | 800 | 15.48 | 2.68 | -83% | 9.9 | 3.6 | 59.6 | 59.5 |
-| 800, crossing | 800 | 14.91 | 1.74 | -88% | 9.8 | 2.8 | 59.6 | 59.6 |
-| 800 short ticks | 800 | 14.92 | 1.74 | -88% | 9.8 | 2.8 | 59.6 | 59.6 |
-| 800, random | 800 | 14.92 | 1.74 | -88% | 9.8 | 2.8 | 59.6 | 59.5 |
-| 800, opaque | 800 | 14.98 | 1.73 | -88% | 9.9 | 2.8 | 59.6 | 59.5 |
-| 800, clipped | 800 | 14.96 | 1.77 | -88% | 9.9 | 2.9 | 59.6 | 59.5 |
-| 800, turned canvas | 800 | 14.94 | 1.73 | -88% | 9.9 | 2.9 | 59.6 | 59.5 |
-| 800 in 40 calls | 800 | 14.93 | 2.43 | -84% | 9.6 | 3.2 | 59.6 | 59.5 |
-| 800 in 200 calls | 800 | 14.93 | 5.30 | -65% | 9.6 | 5.6 | 59.6 | 59.5 |
-| polyline, 800 points | 799 | 14.89 | 1.75 | -88% | 9.8 | 2.8 | 59.6 | 59.6 |
-| polyline, 3000 points | 2,999 | 52.57 | 4.59 | -91% | 18.7 | 5.0 | 46.0 | 59.5 |
+Parallel lines, 1.2 px wide, round caps, 70% opaque. Two lines cost the same on both engines, and the gain is there from ten.
 
-### The scenes on the other two phones
+| Lines in the call | OnePlus 6 | Pixel 5 | Pixel 8 |
+|---|---|---|---|
+| 2 | 0.69 → 0.68 | 1.12 → 1.13 | 0.44 → 0.43 |
+| 10 | 0.85 → 0.69 | 1.31 → 1.15 | 0.53 → 0.45 |
+| 50 | 1.56 → 0.74 | 2.05 → 1.22 | 0.92 → 0.50 |
+| 100 | 2.46 → 0.81 | 2.98 → 1.29 | 1.43 → 0.56 |
+| 400 | 7.81 → 1.20 | 8.51 → 1.71 | 4.45 → 0.94 |
+| 800 | 14.89 → 1.71 | 16.00 → 2.42 | 8.35 → 1.44 |
+| 1600 | 29.26 → 2.78 | 31.12 → 3.90 | 16.38 → 2.44 |
 
-Pixel 5 (Snapdragon 765G, Adreno 620, Android 14, 90 Hz, Impeller on OpenGL ES):
+![Raster thread work per frame by number of lines in one call, OnePlus 6](images/chart_scaling.png)
 
-| Scene | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
-|---|---|---|---|---|---|---|---|---|
-| Hatched shapes | 931 | 18.58 | 2.98 | -84% | 7.1 | 3.1 | 90.0 | 89.9 |
-| Line chart | 1,903 | 36.68 | 4.46 | -88% | 10.9 | 3.9 | 88.3 | 89.9 |
-| Graph paper | 105 | 2.98 | 1.16 | -61% | 3.3 | 2.2 | 89.9 | 89.9 |
-| Waveform | 522 | 10.72 | 1.31 | -88% | 5.9 | 2.2 | 90.0 | 89.9 |
-| Starfield | 1,500 | 29.49 | 3.55 | -88% | 9.7 | 3.2 | 90.0 | 89.9 |
-| Wireframe sphere | 1,880 | 36.11 | 4.39 | -88% | 10.8 | 4.2 | 88.2 | 89.9 |
-| Long polyline | 3,999 | 76.06 | 9.38 | -88% | 22.1 | 5.1 | 43.9 | 89.9 |
-| Rain | 900 | 17.83 | 2.63 | -85% | 6.9 | 2.9 | 89.9 | 89.9 |
+### One property changed at a time
 
-Pixel 8 (Tensor G3, Android 16, 120 Hz, Impeller on Vulkan). The phone warmed from 24 to 39 °C during the run and reported light thermal throttling at the end; the engines alternated, so both saw it alike.
+800 lines as above, with one thing different. The cell is the change in raster thread instructions.
 
-| Scene | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
-|---|---|---|---|---|---|---|---|---|
-| Hatched shapes | 963 | 10.22 | 1.84 | -82% | 5.7 | 1.8 | 120.0 | 119.9 |
-| Line chart | 1,903 | 19.66 | 3.16 | -84% | 6.3 | 2.2 | 119.8 | 119.9 |
-| Graph paper | 108 | 1.42 | 0.45 | -68% | 1.7 | 1.7 | 119.9 | 119.9 |
-| Waveform | 548 | 5.53 | 0.58 | -90% | 4.5 | 1.0 | 119.9 | 119.9 |
-| Starfield | 1,500 | 15.51 | 2.44 | -84% | 5.9 | 2.9 | 119.9 | 119.9 |
-| Wireframe sphere | 1,880 | 19.17 | 2.78 | -85% | 6.2 | 1.5 | 119.7 | 119.9 |
-| Long polyline | 3,999 | 40.39 | 5.43 | -87% | 7.4 | 2.6 | 119.6 | 120.0 |
-| Rain | 900 | 9.49 | 1.66 | -82% | 5.4 | 1.6 | 120.0 | 119.8 |
+| 800 lines, but | OnePlus 6 | Pixel 5 | Pixel 8 |
+|---|---|---|---|
+| 800, butt caps | -94% | -91% | -91% |
+| 800, square caps | -94% | -91% | -91% |
+| 800, 0.3 px wide | -90% | -86% | -85% |
+| 800, 4 px wide | -86% | -80% | -79% |
+| 800, 12 px wide | -83% | -77% | -74% |
+| 800, crossing | -88% | -85% | -83% |
+| 800 short ticks | -88% | -85% | -83% |
+| 800, random | -88% | -85% | -83% |
+| 800, opaque | -88% | -85% | -83% |
+| 800, clipped | -88% | -84% | -83% |
+| 800, turned canvas | -88% | -85% | -83% |
+| 800 in 40 calls | -84% | -81% | -78% |
+| 800 in 200 calls | -65% | -61% | -59% |
+| polyline, 800 points | -88% | -85% | -83% |
+| polyline, 3000 points | -91% | -89% | -86% |
 
-The remaining rows for these phones are in [`results/`](results).
+Splitting the lines over many calls gains less, because each call is still a draw of its own.
 
-### Cases that should not change, and controls
+### Frames per second
 
-The patch keeps the old per-segment path for hairlines, mask blurs, image and color filters and advanced blend modes. The blurred and overlay cases run at 7 to 9 fps, so their per-frame figures are coarse.
+The scenarios where at least one phone missed its screen's rate on the unpatched engine. The cell is frames per second, unpatched → patched.
 
-| Scenario | Segments | Instructions, unpatched | Patched | Change | CPU ms, unpatched | Patched | fps, unpatched | Patched |
-|---|---|---|---|---|---|---|---|---|
-| 800 hairlines (width 0) | 800 | 14.88 | 14.89 | +0% | 9.8 | 9.7 | 59.6 | 59.6 |
-| 100 blurred lines | 100 | 145.60 | 150.05 | +3% | 85.8 | 86.8 | 9.4 | 9.3 |
-| 200 lines, overlay blend | 200 | 60.77 | 63.59 | +5% | 43.5 | 46.7 | 7.0 | 6.9 |
-| 800 lines, color filter | 800 | 15.20 | 15.16 | -0% | 9.8 | 9.9 | 59.4 | 59.6 |
-| empty frame | 0 | 0.66 | 0.66 | +0% | 2.0 | 2.0 | 59.5 | 59.5 |
-| 800 drawLine calls | 800 | 15.01 | 15.01 | -0% | 8.8 | 8.8 | 59.6 | 59.6 |
-| 800 as one drawVertices | 800 | 0.71 | 0.72 | +1% | 2.2 | 2.1 | 59.5 | 59.5 |
+| Scenario | OnePlus 6 | Pixel 5 | Pixel 8 |
+|---|---|---|---|
+| Long polyline | 40.0 → 59.6 | 43.9 → 89.9 | 119.6 → 120.0 |
+| 800 lines | 59.6 → 59.6 | 90.0 → 89.9 | 112.0 → 120.0 |
+| 1600 lines | 59.5 → 59.5 | 71.2 → 89.9 | 52.2 → 120.0 |
+| 800, butt caps | 59.5 → 59.5 | 89.9 → 89.9 | 113.5 → 119.9 |
+| 800, square caps | 59.6 → 59.5 | 90.0 → 89.9 | 107.1 → 120.0 |
+| 800, 0.3 px wide | 59.6 → 59.5 | 90.0 → 89.9 | 112.0 → 120.1 |
+| 800, 4 px wide | 59.6 → 59.5 | 90.0 → 89.9 | 101.3 → 120.1 |
+| 800, 12 px wide | 59.6 → 59.5 | 81.1 → 89.9 | 88.1 → 120.0 |
+| 800, opaque | 59.6 → 59.5 | 90.0 → 89.9 | 112.9 → 119.8 |
+| 800 in 40 calls | 59.6 → 59.5 | 89.9 → 89.9 | 110.2 → 120.1 |
+| 800 in 200 calls | 59.6 → 59.5 | 89.9 → 89.9 | 112.2 → 120.0 |
+| polyline, 3000 points | 46.0 → 59.5 | 52.7 → 89.9 | 103.7 → 119.9 |
 
-The raw numbers, with the lowest and highest round for every figure, are in [`results/`](results).
+### Cases the patch leaves alone, and controls
+
+Hairlines, blurs, color filters and advanced blend modes stay on the per-segment path, and `drawLine`, `drawVertices` and an empty frame are not touched at all. The blurred and overlay rows run at 4 to 19 fps, so their per-frame figures are coarse.
+
+| Scenario | OnePlus 6 | Pixel 5 | Pixel 8 |
+|---|---|---|---|
+| 800 hairlines (width 0) | 14.88 → 14.89 | 16.00 → 15.97 | 8.40 → 8.46 |
+| 100 blurred lines | 145.60 → 150.05 | 217.62 → 211.06 | 66.11 → 70.48 |
+| 200 lines, overlay blend | 60.77 → 63.59 | 72.25 → 69.45 | 28.40 → 27.36 |
+| 800 lines, color filter | 15.20 → 15.16 | 16.25 → 16.24 | 8.67 → 8.65 |
+| empty frame | 0.66 → 0.66 | 1.12 → 1.08 | 0.43 → 0.43 |
+| 800 drawLine calls | 15.01 → 15.01 | 16.07 → 16.06 | 8.28 → 8.33 |
+| 800 as one drawVertices | 0.71 → 0.72 | 1.17 → 1.13 | 0.47 → 0.47 |
+
+### Stock Flutter, and Impeller off
+
+The released Flutter 3.50.0 on the OnePlus 6, the same 800 lines drawn five ways. One `drawRawPoints(PointMode.lines)` call costs the same as 800 `drawLine` calls.
+
+| 800 lines drawn as | Flutter 3.50.0 | 3.50.0 with Impeller off |
+|---|---|---|
+| nothing (empty frame) | 0.61 at 60 fps | 0.31 at 60 fps |
+| 800 `drawLine` calls | 12.66 at 59 fps | 65.90 at 45 fps |
+| one `drawRawPoints(PointMode.lines)` | 12.54 at 59 fps | 64.70 at 47 fps |
+| one stroked `Path` with 800 subpaths | 1.73 at 60 fps | 125.60 at 36 fps |
+| one `drawVertices` (two triangles per line) | 0.66 at 60 fps | 0.46 at 60 fps |
+
+"Impeller off" is the same build started with `--ez enable-impeller false`, which falls back to the old Skia renderer. It is slower still on this test, so the old renderer is not a way around it.
 
 ## Where the time goes
 
-A `simpleperf` call graph of the raster thread, stock Flutter 3.50.0, 800 lines in one `drawRawPoints` call. The figures are shares of the raster thread's CPU time, callees included. The full summary is in [`traces/`](traces/flutter-3.50.0_800_lines_simpleperf.txt).
+A `simpleperf` call graph of the raster thread, stock Flutter 3.50.0 on the OnePlus 6, 800 lines in one `drawRawPoints` call. The figures are shares of the raster thread's CPU time, callees included. The full summary and two timeline traces are in [`traces/`](traces).
 
 ```
 86.4%  impeller::RenderToTarget
@@ -178,10 +184,10 @@ A `simpleperf` call graph of the raster thread, stock Flutter 3.50.0, 800 lines 
 
 ## How the patch was checked
 
-- **On the phone.** Every scenario draws one fixed frame into an image and hashes it. All 37 hashes are equal between the unpatched and the patched engine.
+- **On the phones.** Every scenario draws one fixed frame into an image and hashes it. All 37 hashes are equal between the unpatched and the patched engine, on each of the three phones.
 - **Existing golden tests.** 28 golden images of the engine's line, polygon and point tests (`DepthValuesForLineMode`, `DepthValuesForPolygonMode`, `CanDrawPoints`, `DrawLinesRenderCorrectly`, `CanRenderLinesWithCapsAnglesAndAlphas`, `CanRenderStrokes` and others) are pixel-identical with and without the patch, on the Metal and the OpenGL ES backend.
 - **A new golden test** with crossing translucent lines in all three cap styles, as separate segments, as a polygon and thinner than a pixel. It renders the same through the old loop and through the single draw.
-- **The cases the patch leaves alone** (hairlines, color filter, `drawLine`, an empty frame) cost the same on both engines, as the last table above shows.
+- **The cases the patch leaves alone** cost the same on both engines, as the table above shows.
 
 ## Run it
 
@@ -227,7 +233,7 @@ Each step prints one `LINEBENCH {json}` line to the log.
 
 ## How it measures
 
-- **Instructions and cycles per frame** come from `simpleperf stat --per-thread` on the app's raster thread and UI thread, divided by the frames the app delivered in that window. Instructions do not change when the phone changes its CPU frequency, which makes them the steadiest figure.
+- **Instructions and cycles per frame** come from `simpleperf stat --per-thread` on the app's raster thread and UI thread, divided by the frames the app delivered in that window. Instructions do not change when the phone changes its CPU frequency, which makes them the steadiest figure. Cycles and CPU time are in the result files too.
 - **CPU time per frame** is read by the app from `/proc/self/task/<tid>/schedstat`. It does not include time the raster thread waits for the screen.
 - **Frames per second** is counted from Flutter's own frame timings.
 - **The pixel hash** is a hash of one fixed frame of the scenario, drawn by the engine into an image at the screen's size. Two engines that draw a scenario alike give the same hash.
@@ -237,6 +243,8 @@ Each step prints one `LINEBENCH {json}` line to the log.
 
 - Three Android phones: OpenGL ES on two Adreno GPUs and Vulkan on one Mali GPU. Metal (iOS, macOS) is not measured.
 - Profile builds. In profile and debug mode Impeller also counts pipeline use at every draw, which a release build does not pay.
+- Both Pixels reported light thermal throttling by the end of their runs (34 and 39 °C battery). The engines alternate, so both saw it alike, and instruction counts do not depend on it.
+- A line set that is mostly off screen is not measured. The unpatched engine can skip such segments one by one; the patched engine draws the whole call if any of it is visible.
 - The counters and the CPU time need Android. On other platforms the app still reports frames per second and Flutter's frame timings.
 - Only the Android platform folder is checked in. `flutter create --platforms ios,macos .` adds the others.
 
@@ -245,8 +253,8 @@ Each step prints one `LINEBENCH {json}` line to the log.
 - [`lib/main.dart`](lib/main.dart): the whole app. It depends only on Flutter's widgets library.
 - [`lib/minimal.dart`](lib/minimal.dart): 800 lines and nothing else, in about 60 lines of code.
 - [`tool/bench.py`](tool/bench.py): builds, installs, runs and collects.
-- [`tool/charts.py`](tool/charts.py): draws the two charts from a paired result.
-- [`results/`](results): results as JSON.
-- [`traces/`](traces): a `simpleperf` call-graph summary and two timeline traces (open them at https://ui.perfetto.dev or in chrome://tracing) of stock Flutter 3.50.0 drawing 800 lines and the hatch scene.
+- [`tool/charts.py`](tool/charts.py): draws the charts from paired results.
+- [`results/`](results): results as JSON, with the lowest and highest round of every figure.
+- [`traces/`](traces): a `simpleperf` call-graph summary and two timeline traces (open them at https://ui.perfetto.dev or in chrome://tracing) of stock Flutter 3.50.0.
 
 BSD 3-clause licence, the same as Flutter. See [LICENSE](LICENSE).

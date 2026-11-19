@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="324" viewBox="0 0 920 324">
+<rect width="920" height="324" fill="#fcfcfb"/>
+<text x="24.0" y="36.0" font-size="17" fill="#0b0b0b" text-anchor="start" font-weight="600" font-family="system-ui, -apple-system, Segoe UI, sans-serif">The hatched shapes scene on three phones</text>
+<text x="24.0" y="58.0" font-size="12.5" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Million CPU instructions per frame on the raster thread. 963 line segments in 8 drawRawPoints calls (931 on the Pixel 5).</text>
+<rect x="24" y="76" width="12" height="12" rx="2" fill="#2a78d6"/><text x="42.0" y="86.0" font-size="13" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Unpatched engine</text><rect x="194" y="76" width="12" height="12" rx="2" fill="#eb6834"/><text x="212.0" y="86.0" font-size="13" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Patched engine</text>
+<line x1="250.0" y1="106" x2="250.0" y2="260" stroke="#c3c2b7" stroke-width="1"/>
+<text x="250.0" y="278.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">0</text>
+<line x1="387.5" y1="106" x2="387.5" y2="260" stroke="#e1e0d9" stroke-width="1"/>
+<text x="387.5" y="278.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">5</text>
+<line x1="525.0" y1="106" x2="525.0" y2="260" stroke="#e1e0d9" stroke-width="1"/>
+<text x="525.0" y="278.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">10</text>
+<line x1="662.5" y1="106" x2="662.5" y2="260" stroke="#e1e0d9" stroke-width="1"/>
+<text x="662.5" y="278.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">15</text>
+<line x1="800.0" y1="106" x2="800.0" y2="260" stroke="#e1e0d9" stroke-width="1"/>
+<text x="800.0" y="278.0" font-size="12" fill="#898781" text-anchor="middle" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">20</text>
+<text x="250.0" y="300.0" font-size="12" fill="#898781" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Million instructions per frame</text>
+<text x="238.0" y="123.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">OnePlus 6</text>
+<text x="238.0" y="138.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">OpenGL ES, 60 Hz</text>
+<path d="M250.0,112.0 h492.6 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-492.6 z" fill="#2a78d6"/>
+<path d="M250.0,127.0 h60.1 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-60.1 z" fill="#eb6834"/>
+<text x="754.6" y="123.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">18.1</text>
+<text x="322.1" y="138.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">2.3  (−87%)</text>
+<text x="238.0" y="175.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Pixel 5</text>
+<text x="238.0" y="190.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">OpenGL ES, 90 Hz</text>
+<path d="M250.0,164.0 h506.9 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-506.9 z" fill="#2a78d6"/>
+<path d="M250.0,179.0 h77.9 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-77.9 z" fill="#eb6834"/>
+<text x="768.9" y="175.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">18.6</text>
+<text x="339.9" y="190.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">3.0  (−84%)</text>
+<text x="238.0" y="227.0" font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Pixel 8</text>
+<text x="238.0" y="242.0" font-size="11.5" fill="#898781" text-anchor="end" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">Vulkan, 120 Hz</text>
+<path d="M250.0,216.0 h277.0 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-277.0 z" fill="#2a78d6"/>
+<path d="M250.0,231.0 h46.6 a4,4 0 0 1 4,4 v5.0 a4,4 0 0 1 -4,4 h-46.6 z" fill="#eb6834"/>
+<text x="539.0" y="227.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">10.2</text>
+<text x="308.6" y="242.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="400" font-family="system-ui, -apple-system, Segoe UI, sans-serif">1.8  (−82%)</text>
+</svg>

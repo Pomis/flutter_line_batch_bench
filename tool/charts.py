@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Draws the two charts in images/ from a paired result (results/*.json).
+"""Draws the charts in images/ from paired results (results/*.json).
 
-  python3 tool/charts.py results/<pair>.json [first-name second-name]
+  python3 tool/charts.py results/<pair>.json [more results/<pair>.json ...]
 
-Writes images/chart_scenes.svg and images/chart_scaling.svg. Turn them into
-PNG with any browser, e.g.
+Writes images/chart_scenes.svg and images/chart_scaling.svg from the first
+result, and images/chart_phones.svg with one group of bars per result when
+several are given. Turn them into PNG with any browser, e.g.
   chrome --headless --screenshot=images/chart_scenes.png --window-size=920,520 images/chart_scenes.svg
 """
 import json
@@ -118,18 +119,57 @@ def scaling(rows, a, b, title_a, title_b):
     return "\n".join(out)
 
 
+def phones(results, title_a, title_b):
+    """The hatch scene on every phone: one pair of bars per result."""
+    left, right, top, pitch = 250, 800, 112, 52
+    width, height = 920, top + pitch * len(results) + 56
+    scale = (right - left) / 20e6
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        f'<rect width="{width}" height="{height}" fill="{SURFACE}"/>',
+        text(24, 36, "The hatched shapes scene on three phones", 17, INK, weight="600"),
+        text(24, 58, "Million CPU instructions per frame on the raster thread. 963 line segments in 8 drawRawPoints calls (931 on the Pixel 5).", 12.5, SECOND),
+        legend(24, 86, title_a, title_b),
+    ]
+    bottom = top + pitch * len(results) - 8
+    for tick in range(0, 21, 5):
+        x = left + tick * 1e6 * scale
+        out.append(f'<line x1="{x:.1f}" y1="{top - 6}" x2="{x:.1f}" y2="{bottom}" stroke="{AXIS if tick == 0 else GRID}" stroke-width="1"/>')
+        out.append(text(x, bottom + 18, str(tick), 12, MUTED, "middle"))
+    out.append(text(left, bottom + 40, "Million instructions per frame", 12, MUTED))
+    for index, result in enumerate(results):
+        a, b = list(result["apps"])
+        row = next(r for r in result["scenarios"] if r["spec"] == "hatch")
+        first, other = row[a]["rasterInstructions"], row[b]["rasterInstructions"]
+        phone = result["phone"]
+        y = top + index * pitch
+        out.append(text(left - 12, y + 11, phone["model"].replace("Google ", ""), 13, INK, "end"))
+        out.append(text(left - 12, y + 26, f'{phone["backend"].replace("Impeller ", "")}, {phone["refreshHz"]} Hz', 11.5, MUTED, "end"))
+        out.append(bar(left, y, first * scale, 13, FIRST))
+        out.append(bar(left, y + 15, max(other * scale, 3), 13, OTHER))
+        change = (other - first) / first * 100
+        out.append(text(left + first * scale + 8, y + 11, f"{first / 1e6:.1f}", 12, SECOND))
+        out.append(text(left + max(other * scale, 3) + 8, y + 26, f"{other / 1e6:.1f}  ({change:+.0f}%)".replace("-", "−"), 12, SECOND))
+    out.append("</svg>")
+    return "\n".join(out)
+
+
 def main() -> None:
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    result = json.loads(Path(sys.argv[1]).read_text())
+    results = [json.loads(Path(name).read_text()) for name in sys.argv[1:]]
+    result = results[0]
     a, b = list(result["apps"])
-    title_a = sys.argv[2] if len(sys.argv) > 3 else "Unpatched engine"
-    title_b = sys.argv[3] if len(sys.argv) > 3 else "Patched engine"
+    title_a, title_b = "Unpatched engine", "Patched engine"
     images = ROOT / "images"
     images.mkdir(exist_ok=True)
     (images / "chart_scenes.svg").write_text(scenes(result["scenarios"], a, b, title_a, title_b))
     (images / "chart_scaling.svg").write_text(scaling(result["scenarios"], a, b, title_a, title_b))
-    print("images/chart_scenes.svg images/chart_scaling.svg")
+    made = "images/chart_scenes.svg images/chart_scaling.svg"
+    if len(results) > 1:
+        (images / "chart_phones.svg").write_text(phones(results, title_a, title_b))
+        made += " images/chart_phones.svg"
+    print(made)
 
 
 if __name__ == "__main__":
